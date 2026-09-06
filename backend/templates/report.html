@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{ name }} — Five-System Celestial Report</title>
+<link rel="stylesheet" href="report.css">
+</head>
+<body>
+
+<!-- ================= COVER ================= -->
+<section class="cover">
+  <svg class="cover-stars" width="100%" height="100%" viewBox="0 0 800 1035" preserveAspectRatio="xMidYMid slice">
+    {% for s in stars %}
+    <circle cx="{{ s.x }}" cy="{{ s.y }}" r="{{ s.r }}" fill="#F3EFE3" opacity="{{ s.o }}"/>
+    {% endfor %}
+    <g stroke="#E4C77A" stroke-width="0.6" opacity="0.35" fill="none">
+      <path d="M120,180 L180,140 L250,190 L310,120"/>
+      <path d="M520,760 L580,700 L640,730 L700,660 L650,610"/>
+      <path d="M80,850 L140,900 L100,950"/>
+    </g>
+  </svg>
+  <div class="cover-content">
+    <div class="cover-eyebrow">Five-System Celestial Report</div>
+    <div class="cover-title">Astrology &middot; Vedic &middot; Numerology<br><em>Human Design &amp; Gene Keys</em></div>
+    <div class="cover-subtitle">A complete map of your cosmic blueprint</div>
+    <div class="cover-name">{{ name }}</div>
+    <div class="cover-birthinfo">{{ birth_date_pretty }} &nbsp;&middot;&nbsp; {{ birth_time_pretty }} &nbsp;&middot;&nbsp; {{ birth_place }}</div>
+    <div class="cover-systems">
+      <div class="cover-system-pill">Western</div>
+      <div class="cover-system-pill">Vedic</div>
+      <div class="cover-system-pill">Numerology</div>
+      <div class="cover-system-pill">Human Design</div>
+      <div class="cover-system-pill">Gene Keys</div>
+    </div>
+  </div>
+  <div class="cover-depth">{{ depth|capitalize }} Edition &nbsp;&middot;&nbsp; Generated {{ generated_date }}</div>
+</section>
+
+<!-- ================= WESTERN ASTROLOGY ================= -->
+<div class="content">
+<section class="section">
+  <div class="section-header">
+    <div class="section-kicker">Part One</div>
+    <h1 class="section-title">Western Astrology</h1>
+    <p class="section-intro">Your tropical zodiac chart: the placements, houses, and aspects that describe your personality, drives, and life themes as seen from Earth's relationship to the seasons.</p>
+  </div>
+
+  <div class="big-stat-row">
+    <div class="big-stat">
+      <div class="label">Ascendant</div>
+      <div class="value">{{ w.ascendant_sign }} {{ w.ascendant_degree }}</div>
+      <div class="sub">Your rising sign — first impression &amp; life approach</div>
+    </div>
+    <div class="big-stat">
+      <div class="label">Midheaven</div>
+      <div class="value">{{ w.midheaven_sign }} {{ w.midheaven_degree }}</div>
+      <div class="sub">Career direction &amp; public role</div>
+    </div>
+  </div>
+  <p class="card-text">{{ w.ascendant_text }}</p>
+
+  <h3 class="block-title">Planetary Placements</h3>
+  {% for p in w.planets %}
+  <div class="card">
+    <div class="card-title-row">
+      <span class="card-title">{{ p.planet }} in {{ p.sign }}</span>
+      <span class="card-meta">{{ p.degree }} &middot; House {{ p.house }}{% if w.show_houses %} ({{ p.house_name }}){% endif %}</span>
+    </div>
+    <div class="card-keyword">{{ p.keyword }}</div>
+    <div class="card-text">{{ p.text }}</div>
+  </div>
+  {% endfor %}
+
+  <h3 class="block-title">Key Aspects</h3>
+  <table>
+    <tr><th>Aspect</th><th>Meaning</th></tr>
+    {% for a in w.aspects %}
+    <tr><td colspan="2">{{ a.text }}</td></tr>
+    {% endfor %}
+  </table>
+</section>
+
+<!-- ================= VEDIC ASTROLOGY ================= -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-kicker">Part Two</div>
+    <h1 class="section-title">Vedic Astrology</h1>
+    <p class="section-intro">Your sidereal (Lahiri ayanamsa {{ v.ayanamsa }}&deg;) chart in the Jyotish tradition, including nakshatra placements and your current planetary period (Vimshottari Dasha).</p>
+  </div>
+
+  <div class="big-stat-row">
+    <div class="big-stat">
+      <div class="label">Sidereal Ascendant</div>
+      <div class="value">{{ v.ascendant_sign }} {{ v.ascendant_degree }}</div>
+      <div class="sub">{{ v.ascendant_nakshatra }} nakshatra, pada {{ v.ascendant_pada }}</div>
+    </div>
+    <div class="big-stat">
+      <div class="label">Current Mahadasha</div>
+      <div class="value">{{ v.dasha_timeline[0].lord }}</div>
+      <div class="sub">{{ v.dasha_timeline[0].start }} &ndash; {{ v.dasha_timeline[0].end }}</div>
+    </div>
+  </div>
+  <p class="card-text">{{ v.rashi_theme }}</p>
+  <p class="card-text muted">Ascendant nakshatra theme: {{ v.ascendant_theme }}</p>
+
+  <h3 class="block-title">Sidereal Placements &amp; Nakshatras</h3>
+  <table>
+    <tr><th>Planet</th><th>Sign</th><th>Nakshatra</th><th>Pada</th>{% if v.show_navamsa %}<th>Navamsa</th>{% endif %}</tr>
+    {% for p in v.planets %}
+    <tr>
+      <td>{{ p.planet }}</td>
+      <td>{{ p.sign }} {{ p.degree }}</td>
+      <td>{{ p.nakshatra }} ({{ p.nakshatra_lord }})</td>
+      <td>{{ p.pada }}</td>
+      {% if v.show_navamsa %}<td>{{ p.navamsa_sign }}</td>{% endif %}
+    </tr>
+    {% endfor %}
+  </table>
+
+  <h3 class="block-title">Vimshottari Dasha Timeline</h3>
+  <table>
+    <tr><th>Lord</th><th>Period</th><th>Meaning</th></tr>
+    {% for d in v.dasha_timeline %}
+    <tr>
+      <td>{{ d.lord }}{% if d.partial %} *{% endif %}</td>
+      <td>{{ d.start }} &ndash; {{ d.end }}</td>
+      <td>{{ d.meaning }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <p class="footer-note">* Currently active dasha at birth; the end date reflects the remainder of the period.</p>
+</section>
+
+<!-- ================= NUMEROLOGY ================= -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-kicker">Part Three</div>
+    <h1 class="section-title">Numerology</h1>
+    <p class="section-intro">The Pythagorean numbers derived from your birth date and full name, plus your Psychomatrix (Pythagorean Square) — a map of innate strengths built from the digits of your birth date.</p>
+  </div>
+
+  {% for key, c in n.core.items() %}
+  <div class="card">
+    <div class="card-title-row">
+      <span class="card-title">{{ c.label }} Number: {{ c.number }}{% if c.is_master %} (Master Number){% endif %}</span>
+      <span class="card-meta">{{ c.keyword }}</span>
+    </div>
+    <div class="card-text">{{ c.text }}</div>
+  </div>
+  {% endfor %}
+  {% if n.show_extra %}
+  {% for key, c in n.extra.items() %}
+  <div class="card">
+    <div class="card-title-row">
+      <span class="card-title">{{ c.label }} Number: {{ c.number }}{% if c.is_master %} (Master Number){% endif %}</span>
+      <span class="card-meta">{{ c.keyword }}</span>
+    </div>
+    <div class="card-text">{{ c.text }}</div>
+  </div>
+  {% endfor %}
+  {% endif %}
+
+  <h3 class="block-title">Psychomatrix (Pythagorean Square)</h3>
+  <div class="psychomatrix">
+    {% for cell in n.psychomatrix_grid %}
+    <div class="pm-cell">
+      <div class="pm-label">{{ cell.label }}</div>
+      <div class="pm-digits">{{ (cell.cell|string) * cell.count if cell.count > 0 else "&mdash;" }}</div>
+      <div class="pm-theme">{{ cell.theme }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- ================= HUMAN DESIGN ================= -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-kicker">Part Four</div>
+    <h1 class="section-title">Human Design</h1>
+    <p class="section-intro">A synthesis of astrology, the I Ching, Kabbalah, and chakra systems — mapping your energetic Type, Strategy, and Authority for making aligned decisions.</p>
+  </div>
+
+  <div class="big-stat-row">
+    <div class="big-stat">
+      <div class="label">Type</div>
+      <div class="value">{{ h.type }}</div>
+      <div class="sub">Strategy: {{ h.strategy }}</div>
+    </div>
+    <div class="big-stat">
+      <div class="label">Authority</div>
+      <div class="value">{{ h.authority }}</div>
+      <div class="sub">Profile {{ h.profile }} &middot; {{ h.definition }}</div>
+    </div>
+  </div>
+  {% if h.signature %}<p class="card-text">Signature theme when aligned: <strong>{{ h.signature }}</strong> Not-self theme when off-strategy: <strong>{{ h.not_self_theme }}</strong></p>{% endif %}
+
+  <h3 class="block-title">Profile Lines</h3>
+  <p class="card-text">{{ h.profile_line_meanings[0] }}</p>
+  <p class="card-text">{{ h.profile_line_meanings[1] }}</p>
+
+  <h3 class="block-title">Defined Centers</h3>
+  <div class="pill-row">
+    {% for c in h.defined_centers %}<div class="pill">{{ c.name }}</div>{% endfor %}
+    {% for c in h.undefined_centers %}<div class="pill open">{{ c.name }} (open)</div>{% endfor %}
+  </div>
+  {% for c in h.defined_centers %}
+  <p class="card-text muted"><strong>{{ c.name }}</strong> ({{ c.theme }}): {{ c.text }}</p>
+  {% endfor %}
+
+  <h3 class="block-title">Defined Channels</h3>
+  {% for ch in h.channels %}
+  <div class="card">
+    <div class="card-title-row">
+      <span class="card-title">{{ ch.name }}</span>
+      <span class="card-meta">Gates {{ ch.gates[0] }}-{{ ch.gates[1] }}</span>
+    </div>
+    <div class="card-keyword">{{ ch.centers[0] }} &ndash; {{ ch.centers[1] }} &middot; {{ ch.circuit }} Circuit</div>
+    <div class="card-text">{{ ch.keynote }}</div>
+  </div>
+  {% endfor %}
+
+  {% if h.show_gates %}
+  <h3 class="block-title">All Activated Gates</h3>
+  <table>
+    <tr><th>Gate</th><th>Name</th><th>Center</th><th>Keynote</th></tr>
+    {% for g in h.gates %}
+    <tr><td>{{ g.gate }}</td><td>{{ g.name }}</td><td>{{ g.center }}</td><td>{{ g.keynote }}</td></tr>
+    {% endfor %}
+  </table>
+  {% endif %}
+</section>
+
+<!-- ================= GENE KEYS ================= -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-kicker">Part Five</div>
+    <h1 class="section-title">Gene Keys</h1>
+    <p class="section-intro">Your Golden Path — the same 64 gates as Human Design, reframed as a journey from Shadow through Gift to Siddhi across the Activation, Venus, and Pearl Sequences.</p>
+  </div>
+
+  <h3 class="block-title">Activation Sequence</h3>
+  {% for s in gk.activation %}
+  <div class="card">
+    <div class="card-title-row">
+      <span class="card-title">{{ s.name }}</span>
+      <span class="card-meta">Gate {{ s.gate }}.{{ s.line }}</span>
+    </div>
+    <div class="card-keyword">{{ s.keynote }}</div>
+    <div class="card-text"><strong>Shadow:</strong> {{ s.shadow }} &nbsp;&rarr;&nbsp; <strong>Gift:</strong> {{ s.gift }} &nbsp;&rarr;&nbsp; <strong>Siddhi:</strong> {{ s.siddhi }}</div>
+  </div>
+  {% endfor %}
+
+  {% if gk.show_extended %}
+  <h3 class="block-title">Venus Sequence — Relationships</h3>
+  {% for s in gk.venus %}
+  <div class="card">
+    <div class="card-title-row"><span class="card-title">{{ s.name }}</span><span class="card-meta">Gate {{ s.gate }}.{{ s.line }}</span></div>
+    <div class="card-keyword">{{ s.keynote }}</div>
+    <div class="card-text"><strong>Shadow:</strong> {{ s.shadow }} &nbsp;&rarr;&nbsp; <strong>Gift:</strong> {{ s.gift }} &nbsp;&rarr;&nbsp; <strong>Siddhi:</strong> {{ s.siddhi }}</div>
+  </div>
+  {% endfor %}
+
+  <h3 class="block-title">Pearl Sequence — Prosperity</h3>
+  {% for s in gk.pearl %}
+  <div class="card">
+    <div class="card-title-row"><span class="card-title">{{ s.name }}</span><span class="card-meta">Gate {{ s.gate }}.{{ s.line }}</span></div>
+    <div class="card-keyword">{{ s.keynote }}</div>
+    <div class="card-text"><strong>Shadow:</strong> {{ s.shadow }} &nbsp;&rarr;&nbsp; <strong>Gift:</strong> {{ s.gift }} &nbsp;&rarr;&nbsp; <strong>Siddhi:</strong> {{ s.siddhi }}</div>
+  </div>
+  {% endfor %}
+
+  <h3 class="block-title">Additional Spheres</h3>
+  {% for s in gk.extra %}
+  <div class="card">
+    <div class="card-title-row"><span class="card-title">{{ s.name }}</span><span class="card-meta">Gate {{ s.gate }}.{{ s.line }}</span></div>
+    <div class="card-keyword">{{ s.keynote }}</div>
+    <div class="card-text"><strong>Shadow:</strong> {{ s.shadow }} &nbsp;&rarr;&nbsp; <strong>Gift:</strong> {{ s.gift }} &nbsp;&rarr;&nbsp; <strong>Siddhi:</strong> {{ s.siddhi }}</div>
+  </div>
+  {% endfor %}
+  {% endif %}
+</section>
+
+<!-- ================= INTEGRATION ================= -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-kicker">In Closing</div>
+    <h1 class="section-title">Bringing It Together</h1>
+    <p class="section-intro">A few threads that connect your five systems into one story.</p>
+  </div>
+  <div class="integration-block">
+    {% for para in integration.paragraphs %}
+    <p>{{ para }}</p>
+    {% endfor %}
+  </div>
+  <p class="footer-note">This report was generated computationally from Swiss Ephemeris planetary data and traditional numerological, Human Design, and Gene Keys reference systems. It is intended for reflection and self-exploration, not as professional, medical, financial, or legal advice.</p>
+</section>
+</div>
+
+</body>
+</html>

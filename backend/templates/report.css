@@ -1,0 +1,310 @@
+@font-face { font-family: 'Instrument Serif'; src: url('fonts/InstrumentSerif-Regular.ttf'); font-weight: 400; font-style: normal; }
+@font-face { font-family: 'Instrument Serif'; src: url('fonts/InstrumentSerif-Italic.ttf'); font-weight: 400; font-style: italic; }
+@font-face { font-family: 'DM Sans'; src: url('fonts/DMSans-Regular.ttf'); font-weight: 400; font-style: normal; }
+@font-face { font-family: 'DM Sans'; src: url('fonts/DMSans-Medium.ttf'); font-weight: 500; font-style: normal; }
+@font-face { font-family: 'DM Sans'; src: url('fonts/DMSans-Bold.ttf'); font-weight: 700; font-style: normal; }
+@font-face { font-family: 'DM Sans'; src: url('fonts/DMSans-Italic.ttf'); font-weight: 400; font-style: italic; }
+
+:root {
+  --navy: #14172A;
+  --navy-deep: #0B0D1A;
+  --gold: #C9A24B;
+  --gold-light: #E4C77A;
+  --violet: #6E5A9E;
+  --parchment: #FAF7F0;
+  --parchment-alt: #F1ECDD;
+  --ink: #221F2E;
+  --ink-muted: #5C5768;
+  --border: #DED5BE;
+}
+
+* { box-sizing: border-box; }
+
+@page {
+  size: letter;
+  margin: 0;
+}
+@page cover { margin: 0; }
+@page content {
+  margin: 2.1cm 1.9cm 2cm 1.9cm;
+  @bottom-center {
+    content: counter(page) " \2022 Five-System Celestial Report";
+    font-family: 'DM Sans';
+    font-size: 8.5pt;
+    color: #9A927A;
+    letter-spacing: 0.04em;
+  }
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--ink);
+  font-size: 10.5pt;
+  line-height: 1.55;
+  background: var(--parchment);
+  margin: 0;
+}
+
+/* ---------- COVER PAGE ---------- */
+.cover {
+  page: cover;
+  page-break-after: always;
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(ellipse at 50% 20%, #1D2140 0%, var(--navy) 45%, var(--navy-deep) 100%);
+  color: #F3EFE3;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+.cover-stars {
+  position: absolute; inset: 0;
+}
+.cover-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 2.5cm;
+}
+.cover-eyebrow {
+  font-size: 10.5pt;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 0.9cm;
+}
+.cover-title {
+  font-family: 'Instrument Serif';
+  font-size: 52pt;
+  line-height: 1.05;
+  margin: 0 0 0.5cm 0;
+  font-weight: 400;
+}
+.cover-title em { font-style: italic; color: var(--gold-light); }
+.cover-subtitle {
+  font-size: 12pt;
+  color: #CFC9DD;
+  margin-bottom: 1.4cm;
+  letter-spacing: 0.02em;
+}
+.cover-name {
+  font-family: 'Instrument Serif';
+  font-size: 28pt;
+  color: #fff;
+  margin-bottom: 0.3cm;
+}
+.cover-birthinfo {
+  font-size: 10.5pt;
+  color: #B9B3CB;
+  margin-bottom: 1.6cm;
+}
+.cover-systems {
+  display: flex;
+  gap: 0.55cm;
+  margin-top: 0.4cm;
+}
+.cover-system-pill {
+  border: 1px solid rgba(228,199,122,0.45);
+  border-radius: 999px;
+  padding: 0.22cm 0.5cm;
+  font-size: 8.8pt;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+.cover-depth {
+  position: absolute;
+  bottom: 1.3cm;
+  left: 0; right: 0;
+  text-align: center;
+  font-size: 8.5pt;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8B84A0;
+}
+
+/* ---------- CONTENT PAGES ---------- */
+.content { page: content; }
+
+.section {
+  page-break-before: always;
+}
+.section:first-child { page-break-before: avoid; }
+
+.section-header {
+  background: var(--navy);
+  color: #F3EFE3;
+  margin: -2.1cm -1.9cm 0.9cm -1.9cm;
+  padding: 0.85cm 1.9cm 0.75cm 1.9cm;
+  border-bottom: 2px solid var(--gold);
+}
+.section-kicker {
+  font-size: 8.8pt;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 0.15cm;
+}
+.section-title {
+  font-family: 'Instrument Serif';
+  font-size: 26pt;
+  margin: 0;
+  font-weight: 400;
+}
+.section-intro {
+  font-size: 9.8pt;
+  color: #CFC9DD;
+  margin-top: 0.25cm;
+  max-width: 15cm;
+}
+
+h3.block-title {
+  font-family: 'Instrument Serif';
+  font-size: 16pt;
+  color: var(--navy);
+  margin: 0.9cm 0 0.35cm 0;
+  font-weight: 400;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.15cm;
+}
+h4.sub-title {
+  font-family: 'DM Sans';
+  font-weight: 700;
+  font-size: 10.5pt;
+  color: var(--navy);
+  margin: 0.5cm 0 0.15cm 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+p { margin: 0 0 0.3cm 0; }
+.muted { color: var(--ink-muted); }
+
+.card {
+  background: var(--parchment-alt);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+  border-radius: 4px;
+  padding: 0.4cm 0.5cm;
+  margin-bottom: 0.35cm;
+  break-inside: avoid;
+}
+.card-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.12cm;
+}
+.card-title {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 10.8pt;
+}
+.card-meta {
+  font-size: 9pt;
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+.card-keyword {
+  font-size: 9pt;
+  font-style: italic;
+  color: var(--ink-muted);
+  margin-bottom: 0.12cm;
+}
+.card-text { font-size: 9.8pt; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.25cm 0 0.5cm 0;
+  font-size: 9.3pt;
+}
+th {
+  text-align: left;
+  background: var(--navy);
+  color: #F3EFE3;
+  padding: 0.18cm 0.3cm;
+  font-weight: 700;
+  font-size: 8.6pt;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+td {
+  padding: 0.18cm 0.3cm;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+tr:nth-child(even) td { background: rgba(201,162,75,0.06); }
+
+.grid-2 { display: flex; gap: 0.5cm; }
+.grid-2 > div { flex: 1; }
+
+.psychomatrix {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.2cm;
+  margin: 0.3cm 0 0.5cm 0;
+  max-width: 11cm;
+}
+.pm-cell {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--parchment-alt);
+  padding: 0.3cm 0.25cm;
+  text-align: center;
+}
+.pm-cell .pm-label { font-size: 8pt; text-transform: uppercase; letter-spacing: 0.03em; color: var(--ink-muted); }
+.pm-cell .pm-digits { font-family: 'Instrument Serif'; font-size: 19pt; color: var(--navy); margin: 0.05cm 0; }
+.pm-cell .pm-theme { font-size: 7.6pt; color: var(--ink-muted); }
+
+.pill-row { display: flex; flex-wrap: wrap; gap: 0.2cm; margin: 0.2cm 0 0.4cm 0; }
+.pill {
+  border: 1px solid var(--gold);
+  color: var(--navy);
+  border-radius: 999px;
+  padding: 0.1cm 0.35cm;
+  font-size: 8.6pt;
+  font-weight: 500;
+}
+.pill.open {
+  border-color: var(--border);
+  color: var(--ink-muted);
+  border-style: dashed;
+}
+
+.big-stat-row { display: flex; gap: 0.4cm; margin: 0.3cm 0 0.5cm 0; }
+.big-stat {
+  flex: 1;
+  background: var(--navy);
+  color: #F3EFE3;
+  border-radius: 6px;
+  padding: 0.45cm 0.4cm;
+}
+.big-stat .label { font-size: 8pt; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gold-light); margin-bottom: 0.1cm; }
+.big-stat .value { font-family: 'Instrument Serif'; font-size: 17pt; }
+.big-stat .sub { font-size: 8.3pt; color: #CFC9DD; margin-top: 0.08cm; }
+
+.integration-block {
+  background: linear-gradient(135deg, var(--navy) 0%, #262A4A 100%);
+  color: #F3EFE3;
+  border-radius: 8px;
+  padding: 0.7cm 0.8cm;
+  margin-top: 0.4cm;
+}
+.integration-block p { color: #E7E2F0; font-size: 10pt; margin-bottom: 0.35cm; }
+.integration-block p:last-child { margin-bottom: 0; }
+
+.footer-note {
+  margin-top: 1cm;
+  padding-top: 0.3cm;
+  border-top: 1px solid var(--border);
+  font-size: 8pt;
+  color: var(--ink-muted);
+  font-style: italic;
+}

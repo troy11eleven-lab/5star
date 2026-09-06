@@ -1,0 +1,386 @@
+{
+  "1": {
+    "shadow": "Entropy",
+    "gift": "Freshness",
+    "siddhi": "Beauty",
+    "keynote": "Gene Key 1 concerns the creative force of self-expression, moving from stagnation and creative blockage (Entropy) through spontaneous innovation (Freshness) to the pure, divine radiance of Beauty."
+  },
+  "2": {
+    "shadow": "Dislocation",
+    "gift": "Orientation",
+    "siddhi": "Unity",
+    "keynote": "Gene Key 2 is about receptivity and direction, transforming the feeling of being lost and disconnected from life's flow (Dislocation) into alignment with one's higher purpose (Orientation) and ultimately the direct experience of oneness (Unity)."
+  },
+  "3": {
+    "shadow": "Chaos",
+    "gift": "Innovation",
+    "siddhi": "Innocence",
+    "keynote": "Gene Key 3 deals with change and new beginnings, turning fear-based resistance to disorder (Chaos) into adaptive creative breakthroughs (Innovation) and finally an effortless, playful trust in life's unfolding (Innocence)."
+  },
+  "4": {
+    "shadow": "Intolerance",
+    "gift": "Understanding",
+    "siddhi": "Forgiveness",
+    "keynote": "Gene Key 4 concerns the mind's need for answers, shifting from rigid, reactive judgment of others (Intolerance) to deep tolerant wisdom (Understanding) and the divine, karma-releasing quality of Forgiveness."
+  },
+  "5": {
+    "shadow": "Impatience",
+    "gift": "Patience",
+    "siddhi": "Timelessness",
+    "keynote": "Gene Key 5 is about natural rhythm and timing, moving from anxious rushing against life's cycles (Impatience) to trust in the correct pace of unfolding (Patience) and a transcendent state beyond time itself (Timelessness)."
+  },
+  "6": {
+    "shadow": "Conflict",
+    "gift": "Diplomacy",
+    "siddhi": "Peace",
+    "keynote": "Gene Key 6 governs emotional friction between people, transforming reactive emotional conflict (Conflict) into skillful, heart-based negotiation (Diplomacy) and ultimately profound inner and collective Peace."
+  },
+  "7": {
+    "shadow": "Division",
+    "gift": "Guidance",
+    "siddhi": "Virtue",
+    "keynote": "Gene Key 7 concerns leadership and role, turning ego-driven, divisive authority (Division) into selfless, service-oriented direction (Guidance) and the naturally virtuous leadership of the awakened being (Virtue)."
+  },
+  "8": {
+    "shadow": "Mediocrity",
+    "gift": "Style",
+    "siddhi": "Exquisiteness",
+    "keynote": "Gene Key 8 is about individual creative contribution, moving from fear of standing out and conformity (Mediocrity) to authentic creative self-expression (Style) and the exquisite, divinely inspired uniqueness of true genius (Exquisiteness)."
+  },
+  "9": {
+    "shadow": "Inertia",
+    "gift": "Determination",
+    "siddhi": "Invincibility",
+    "keynote": "Gene Key 9 concerns focus and small actions, transforming stuck, unfocused energy (Inertia) into single-pointed resolve (Determination) and the unstoppable, love-powered force of the awakened will (Invincibility)."
+  },
+  "10": {
+    "shadow": "Self-Obsession",
+    "gift": "Naturalness",
+    "siddhi": "Being",
+    "keynote": "Gene Key 10 governs self-love and identity, moving from a fearful, narcissistic fixation on self-image (Self-Obsession) to effortless authenticity (Naturalness) and the pure, unconditioned state of simply Being."
+  },
+  "11": {
+    "shadow": "Obscurity",
+    "gift": "Idealism",
+    "siddhi": "Light",
+    "keynote": "Gene Key 11 concerns ideas and inner vision, turning confused or self-serving perception (Obscurity) into expansive, peace-building idealism (Idealism) and the pure illumination of enlightened awareness (Light)."
+  },
+  "12": {
+    "shadow": "Vanity",
+    "gift": "Discrimination",
+    "siddhi": "Purity",
+    "keynote": "Gene Key 12 is about voice and self-expression, transmuting ego-driven caution and vanity (Vanity) into clear, heart-based discernment in speech (Discrimination) and the innocent, untarnished Purity of the awakened heart."
+  },
+  "13": {
+    "shadow": "Discord",
+    "gift": "Discernment",
+    "siddhi": "Empathy",
+    "keynote": "Gene Key 13 concerns listening and shared experience, moving from an inability to hear truth beneath emotional noise (Discord) to wise, open-hearted listening (Discernment) and the boundary-dissolving universal understanding of Empathy."
+  },
+  "14": {
+    "shadow": "Compromise",
+    "gift": "Competence",
+    "siddhi": "Bounteousness",
+    "keynote": "Gene Key 14 governs personal power and prosperity, transforming a compromised, unfulfilled life (Compromise) into skilled, passionate mastery of one's work (Competence) and an abundant, effortlessly generous flow of resources (Bounteousness)."
+  },
+  "15": {
+    "shadow": "Dullness",
+    "gift": "Magnetism",
+    "siddhi": "Florescence",
+    "keynote": "Gene Key 15 is about extremes and rhythm, moving from disengaged monotony (Dullness) to a magnetic, charismatic aura of vitality (Magnetism) and the flourishing, love-infused expression of true florescence (Florescence)."
+  },
+  "16": {
+    "shadow": "Indifference",
+    "gift": "Versatility",
+    "siddhi": "Mastery",
+    "keynote": "Gene Key 16 concerns skills and enthusiasm, transforming scattered lack of commitment (Indifference) into adaptable, multi-talented skillfulness (Versatility) and the total, devoted perfection of true Mastery."
+  },
+  "17": {
+    "shadow": "Opinion",
+    "gift": "Far-Sightedness",
+    "siddhi": "Omniscience",
+    "keynote": "Gene Key 17 governs perspective and mental patterns, moving from rigid, fear-based opinion (Opinion) to expansive, big-picture perception (Far-Sightedness) and the all-encompassing cosmic vision of Omniscience."
+  },
+  "18": {
+    "shadow": "Judgment",
+    "gift": "Integrity",
+    "siddhi": "Perfection",
+    "keynote": "Gene Key 18 is about correction and critique, transforming fault-finding criticism (Judgment) into constructive, principled correction (Integrity) and the recognition of the innate divine order behind apparent flaws (Perfection)."
+  },
+  "19": {
+    "shadow": "Co-Dependence",
+    "gift": "Sensitivity",
+    "siddhi": "Sacrifice",
+    "keynote": "Gene Key 19 concerns need and belonging, moving from anxious neediness and approval-seeking (Co-Dependence) to attuned emotional sensitivity to others (Sensitivity) and the selfless devotion of true Sacrifice."
+  },
+  "20": {
+    "shadow": "Superficiality",
+    "gift": "Self-Assurance",
+    "siddhi": "Presence",
+    "keynote": "Gene Key 20 governs presence and the present moment, transforming distracted surface-level living (Superficiality) into grounded confidence in the now (Self-Assurance) and the total, luminous immersion in Presence."
+  },
+  "21": {
+    "shadow": "Control",
+    "gift": "Authority",
+    "siddhi": "Valour",
+    "keynote": "Gene Key 21 is about authority and material control, moving from the need to dominate or resist domination (Control) into true self-sovereign authority (Authority) and the fearless, selfless courage of Valour."
+  },
+  "22": {
+    "shadow": "Dishonour",
+    "gift": "Graciousness",
+    "siddhi": "Grace",
+    "keynote": "Gene Key 22 concerns emotional openness and social conduct, transforming avoidance of emotional responsibility (Dishonour) into open-hearted courtesy (Graciousness) and the divine, love-infused elegance of Grace."
+  },
+  "23": {
+    "shadow": "Complexity",
+    "gift": "Simplicity",
+    "siddhi": "Quintessence",
+    "keynote": "Gene Key 23 governs communication and assimilation of ideas, turning overcomplicated, hard-to-digest expression (Complexity) into clear, essential truth (Simplicity) and the distilled, universal essence of Quintessence."
+  },
+  "24": {
+    "shadow": "Addiction",
+    "gift": "Invention",
+    "siddhi": "Silence",
+    "keynote": "Gene Key 24 is about mental repetition and insight, moving from compulsive, looping thought patterns (Addiction) to sudden creative breakthroughs (Invention) and the profound, thought-free stillness of Silence."
+  },
+  "25": {
+    "shadow": "Constriction",
+    "gift": "Acceptance",
+    "siddhi": "Universal Love",
+    "keynote": "Gene Key 25 concerns the spirit of the self and unconditional love, transforming closed-hearted self-protection (Constriction) into deep self-acceptance (Acceptance) and the boundless, all-inclusive compassion of Universal Love."
+  },
+  "26": {
+    "shadow": "Pride",
+    "gift": "Artfulness",
+    "siddhi": "Invisibility",
+    "keynote": "Gene Key 26 governs influence and self-image, moving from ego-driven manipulation and exaggeration (Pride) to skillful, authentic persuasion (Artfulness) and the humble, ego-transcending service of Invisibility."
+  },
+  "27": {
+    "shadow": "Selfishness",
+    "gift": "Altruism",
+    "siddhi": "Selflessness",
+    "keynote": "Gene Key 27 is about caring and nurturance, transforming self-serving neglect of others (Selfishness) into generous, caring support (Altruism) and the unconditional, ego-free giving of Selflessness."
+  },
+  "28": {
+    "shadow": "Purposelessness",
+    "gift": "Totality",
+    "siddhi": "Immortality",
+    "keynote": "Gene Key 28 concerns life purpose and mortality, moving from existential fear and aimlessness (Purposelessness) to a fully engaged, all-in embrace of life's risks (Totality) and the fearless transcendence of death itself (Immortality)."
+  },
+  "29": {
+    "shadow": "Half-Heartedness",
+    "gift": "Commitment",
+    "siddhi": "Devotion",
+    "keynote": "Gene Key 29 governs commitment and perseverance, transforming hesitant, energy-leaking half-measures (Half-Heartedness) into wholehearted engagement with life (Commitment) and the total, surrendered dedication of Devotion."
+  },
+  "30": {
+    "shadow": "Desire",
+    "gift": "Lightness",
+    "siddhi": "Rapture",
+    "keynote": "Gene Key 30 is about feelings and craving, moving from attachment-driven emotional turmoil (Desire) to a light, equanimous relationship with wanting (Lightness) and the ecstatic, tantric bliss of Rapture."
+  },
+  "31": {
+    "shadow": "Arrogance",
+    "gift": "Leadership",
+    "siddhi": "Humility",
+    "keynote": "Gene Key 31 concerns influence and vocal leadership, transforming self-important, ego-driven authority (Arrogance) into influential leadership through voice (Leadership) and the empty, service-based power of true Humility."
+  },
+  "32": {
+    "shadow": "Failure",
+    "gift": "Preservation",
+    "siddhi": "Veneration",
+    "keynote": "Gene Key 32 governs continuity and value, moving from fear of loss and insecurity (Failure) to wise discernment of what endures (Preservation) and the deep reverence for life's cycles found in Veneration."
+  },
+  "33": {
+    "shadow": "Forgetting",
+    "gift": "Mindfulness",
+    "siddhi": "Revelation",
+    "keynote": "Gene Key 33 is about retreat and inner reflection, transforming avoidance of one's own truth (Forgetting) into present, attentive self-awareness (Mindfulness) and the illuminating disclosure of hidden truth in Revelation."
+  },
+  "34": {
+    "shadow": "Force",
+    "gift": "Strength",
+    "siddhi": "Majesty",
+    "keynote": "Gene Key 34 concerns power and effort, moving from strained, ego-driven pushing (Force) to natural, effortless personal power (Strength) and the radiant, commanding presence of Majesty."
+  },
+  "35": {
+    "shadow": "Hunger",
+    "gift": "Adventure",
+    "siddhi": "Boundlessness",
+    "keynote": "Gene Key 35 governs progress and experience, transforming restless craving for novelty and status (Hunger) into a bold embrace of new experience (Adventure) and the miraculous, limitless expansion of Boundlessness."
+  },
+  "36": {
+    "shadow": "Turbulence",
+    "gift": "Humanity",
+    "siddhi": "Compassion",
+    "keynote": "Gene Key 36 is about crisis and emotional experience, moving from overwhelming emotional chaos (Turbulence) into an openhearted embrace of the full human experience (Humanity) and the deep, universal empathy of Compassion."
+  },
+  "37": {
+    "shadow": "Weakness",
+    "gift": "Equality",
+    "siddhi": "Tenderness",
+    "keynote": "Gene Key 37 concerns family and community, transforming a sense of inadequacy or inequality (Weakness) into genuine relational balance (Equality) and the gentle, heart-based warmth that binds people together (Tenderness)."
+  },
+  "38": {
+    "shadow": "Struggle",
+    "gift": "Perseverance",
+    "siddhi": "Honour",
+    "keynote": "Gene Key 38 is about the fight for meaning, moving from exhausting resistance to life (Struggle) to sustained, purposeful effort against the odds (Perseverance) and the noble, warrior-like integrity of Honour."
+  },
+  "39": {
+    "shadow": "Provocation",
+    "gift": "Dynamism",
+    "siddhi": "Liberation",
+    "keynote": "Gene Key 39 governs emotional tension and release, transforming reactive irritation at being provoked (Provocation) into dynamic, energizing action (Dynamism) and the freeing release of stagnant energy found in Liberation."
+  },
+  "40": {
+    "shadow": "Exhaustion",
+    "gift": "Resolve",
+    "siddhi": "Divine Will",
+    "keynote": "Gene Key 40 concerns willpower and rest, moving from burnout caused by overextension (Exhaustion) to a balanced, resolute commitment to one's own needs (Resolve) and the surrendered alignment with a higher will known as Divine Will."
+  },
+  "41": {
+    "shadow": "Fantasy",
+    "gift": "Anticipation",
+    "siddhi": "Emanation",
+    "keynote": "Gene Key 41 is about new beginnings and imagination, transforming escapist, unfulfilled longing (Fantasy) into an intuitive sense of new possibility (Anticipation) and the spontaneous, dream-manifesting radiance of Emanation."
+  },
+  "42": {
+    "shadow": "Expectation",
+    "gift": "Detachment",
+    "siddhi": "Celebration",
+    "keynote": "Gene Key 42 governs cycles and completion, moving from disappointment rooted in attachment to outcomes (Expectation) to graceful non-attachment through life's endings (Detachment) and the joyful embrace of every moment found in Celebration."
+  },
+  "43": {
+    "shadow": "Deafness",
+    "gift": "Insight",
+    "siddhi": "Epiphany",
+    "keynote": "Gene Key 43 concerns inner knowing, transforming a noisy inability to hear one's own truth (Deafness) into sudden creative breakthroughs of understanding (Insight) and the full-body, revelatory awakening of Epiphany."
+  },
+  "44": {
+    "shadow": "Interference",
+    "gift": "Teamwork",
+    "siddhi": "Synarchy",
+    "keynote": "Gene Key 44 is about instinct and collaboration, moving from disruptive misjudgment of others (Interference) to effective, cooperative working relationships (Teamwork) and the self-organizing collective harmony of Synarchy."
+  },
+  "45": {
+    "shadow": "Dominance",
+    "gift": "Synergy",
+    "siddhi": "Communion",
+    "keynote": "Gene Key 45 governs power and community resources, transforming controlling, competitive behavior (Dominance) into cooperative group flow (Synergy) and the unified, sacred togetherness of Communion."
+  },
+  "46": {
+    "shadow": "Seriousness",
+    "gift": "Delight",
+    "siddhi": "Ecstasy",
+    "keynote": "Gene Key 46 concerns the body and fortune, moving from a heavy, joyless relationship with life (Seriousness) to a light-hearted appreciation of embodiment (Delight) and the natural, whole-body bliss of Ecstasy."
+  },
+  "47": {
+    "shadow": "Oppression",
+    "gift": "Transmutation",
+    "siddhi": "Transfiguration",
+    "keynote": "Gene Key 47 is about mental patterns and past conditioning, transforming a mind trapped in unresolved suffering (Oppression) into the alchemical transformation of old patterns into insight (Transmutation) and the completed, luminous transformation of Transfiguration."
+  },
+  "48": {
+    "shadow": "Inadequacy",
+    "gift": "Resourcefulness",
+    "siddhi": "Wisdom",
+    "keynote": "Gene Key 48 governs depth and preparedness, moving from a fear of not being good enough (Inadequacy) to skillful, resourceful problem-solving (Resourcefulness) and the timeless, spontaneous knowing of Wisdom."
+  },
+  "49": {
+    "shadow": "Reaction",
+    "gift": "Revolution",
+    "siddhi": "Rebirth",
+    "keynote": "Gene Key 49 concerns relationships and change, transforming rejection of what no longer serves through reactive emotion (Reaction) into principled, transformative change (Revolution) and the collective, extraordinary renewal of Rebirth."
+  },
+  "50": {
+    "shadow": "Corruption",
+    "gift": "Equilibrium",
+    "siddhi": "Harmony",
+    "keynote": "Gene Key 50 is about values and social law, moving from compromised ethics and imbalance (Corruption) to dynamic, adaptive balance (Equilibrium) and the universal, musical resonance of Harmony."
+  },
+  "51": {
+    "shadow": "Agitation",
+    "gift": "Initiative",
+    "siddhi": "Awakening",
+    "keynote": "Gene Key 51 concerns shock and spiritual initiation, transforming restless disturbance (Agitation) into courageous, self-driven action (Initiative) and the awakening that arises through embracing life's sudden jolts (Awakening)."
+  },
+  "52": {
+    "shadow": "Stress",
+    "gift": "Restraint",
+    "siddhi": "Stillness",
+    "keynote": "Gene Key 52 governs stillness and focus, moving from anxious, pressured busyness (Stress) to disciplined, restrained calm (Restraint) and the deep, world-transforming quietude of Stillness."
+  },
+  "53": {
+    "shadow": "Immaturity",
+    "gift": "Expansion",
+    "siddhi": "Superabundance",
+    "keynote": "Gene Key 53 is about beginnings and growth, transforming impulsive, unready starts (Immaturity) into natural, unforced expansion (Expansion) and the boundless, ever-evolving flourishing of Superabundance."
+  },
+  "54": {
+    "shadow": "Greed",
+    "gift": "Aspiration",
+    "siddhi": "Ascension",
+    "keynote": "Gene Key 54 concerns ambition and drive, moving from insatiable material craving (Greed) to purposeful, service-oriented striving (Aspiration) and the transcendent rising of consciousness into Ascension."
+  },
+  "55": {
+    "shadow": "Victimisation",
+    "gift": "Freedom",
+    "siddhi": "Freedom",
+    "keynote": "Gene Key 55 governs emotional spirit and destiny, transforming a victim-based sense of powerlessness (Victimisation) into liberated emotional independence (Freedom), which at its highest frequency remains Freedom, the pinnacle of the spirit's evolutionary awakening."
+  },
+  "56": {
+    "shadow": "Distraction",
+    "gift": "Enrichment",
+    "siddhi": "Intoxication",
+    "keynote": "Gene Key 56 is about stimulation and storytelling, moving from restless seeking of external diversion (Distraction) to genuinely nourishing engagement with experience (Enrichment) and the wild, all-embracing wonder of Intoxication."
+  },
+  "57": {
+    "shadow": "Unease",
+    "gift": "Intuition",
+    "siddhi": "Clarity",
+    "keynote": "Gene Key 57 concerns intuitive perception and the present, transforming a vague, nagging discomfort (Unease) into precise in-the-moment knowing (Intuition) and the identity-transcending lucidity of Clarity."
+  },
+  "58": {
+    "shadow": "Dissatisfaction",
+    "gift": "Vitality",
+    "siddhi": "Bliss",
+    "keynote": "Gene Key 58 governs joy and vitality, moving from a nagging sense that something is wrong (Dissatisfaction) to exuberant life-force energy (Vitality) and the deep, embodied joy of Bliss."
+  },
+  "59": {
+    "shadow": "Dishonesty",
+    "gift": "Intimacy",
+    "siddhi": "Transparency",
+    "keynote": "Gene Key 59 is about sexuality and bonding, transforming barriers of self-protective concealment (Dishonesty) into deep, honest connection with others (Intimacy) and the fully open, boundary-dissolving honesty of Transparency."
+  },
+  "60": {
+    "shadow": "Limitation",
+    "gift": "Realism",
+    "siddhi": "Justice",
+    "keynote": "Gene Key 60 concerns structure and acceptance of boundaries, moving from a sense of being confined by circumstance (Limitation) to pragmatic, grounded acceptance of form (Realism) and the mysterious, mutation-driving order of Justice."
+  },
+  "61": {
+    "shadow": "Psychosis",
+    "gift": "Inspiration",
+    "siddhi": "Sanctity",
+    "keynote": "Gene Key 61 is about mystery and mental obsession with truth, transforming a mind trapped in unanswerable questions (Psychosis) into illuminated creative insight (Inspiration) and the recognition of the sacred in all things found in Sanctity."
+  },
+  "62": {
+    "shadow": "Intellect",
+    "gift": "Precision",
+    "siddhi": "Impeccability",
+    "keynote": "Gene Key 62 governs detail and language, moving from dualistic, fragmented over-thinking (Intellect) to exact, attentive expression (Precision) and the flawless, detail-perfect clarity of Impeccability."
+  },
+  "63": {
+    "shadow": "Doubt",
+    "gift": "Inquiry",
+    "siddhi": "Truth",
+    "keynote": "Gene Key 63 concerns logic and completion, transforming corrosive self-doubt and suspicion (Doubt) into rigorous, truth-seeking questioning (Inquiry) and the self-evident, already-existing state of Truth."
+  },
+  "64": {
+    "shadow": "Confusion",
+    "gift": "Imagination",
+    "siddhi": "Illumination",
+    "keynote": "Gene Key 64 is about completion and new perception, moving from an overwhelmed, disordered mind facing too many impressions (Confusion) to creative synthesis of experience (Imagination) and the sudden, all-encompassing enlightenment of Illumination."
+  }
+}

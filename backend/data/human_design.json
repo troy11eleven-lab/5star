@@ -1,0 +1,885 @@
+{
+  "gates": {
+    "1": {
+      "name": "Self-Expression",
+      "center": "G",
+      "keynote": "The drive for pure, self-generated creative self-expression that must come from within before it can be shared with others."
+    },
+    "2": {
+      "name": "The Direction of the Self",
+      "center": "G",
+      "keynote": "The inner sense of direction and receptivity that guides the self and others toward their unique path in life."
+    },
+    "3": {
+      "name": "Ordering",
+      "center": "Sacral",
+      "keynote": "The energy of ordering chaos into new beginnings, bringing innovation and mutation out of difficulty."
+    },
+    "4": {
+      "name": "Formulization",
+      "center": "Ajna",
+      "keynote": "The mental pressure to formulate logical answers and workable formulas in response to life's questions."
+    },
+    "5": {
+      "name": "Fixed Rhythms",
+      "center": "Sacral",
+      "keynote": "The need for fixed, natural rhythms and patience that create consistency and reliable habits."
+    },
+    "6": {
+      "name": "Friction",
+      "center": "Solar Plexus",
+      "keynote": "The friction and emotional boundary-setting that determines intimacy, conflict, and who is let close."
+    },
+    "7": {
+      "name": "The Role of the Self",
+      "center": "G",
+      "keynote": "The role of leadership and direction offered to others, valid only when interaction invites it forward."
+    },
+    "8": {
+      "name": "Contribution",
+      "center": "Throat",
+      "keynote": "The urge to contribute one's unique individual expression as an example and inspiration to others."
+    },
+    "9": {
+      "name": "Focus",
+      "center": "Sacral",
+      "keynote": "The focused determination to concentrate on details until a task reaches completion."
+    },
+    "10": {
+      "name": "Behavior of the Self",
+      "center": "G",
+      "keynote": "The behavior and conduct of the self, rooted in self-love and authentic ways of being in the world."
+    },
+    "11": {
+      "name": "Ideas",
+      "center": "Ajna",
+      "keynote": "The gathering of ideas and concepts, generating stimulating visions and possibilities to be shared."
+    },
+    "12": {
+      "name": "Caution",
+      "center": "Throat",
+      "keynote": "The cautious, mood-dependent voice that expresses emotional depth only when the timing feels right."
+    },
+    "13": {
+      "name": "The Listener",
+      "center": "G",
+      "keynote": "The listener who receives others' stories and secrets, holding the collective's memory and fellowship."
+    },
+    "14": {
+      "name": "Power Skills",
+      "center": "Sacral",
+      "keynote": "The power and resources generated through skillful work in service of a greater direction."
+    },
+    "15": {
+      "name": "Extremes",
+      "center": "G",
+      "keynote": "The embrace of life's extremes and rhythms, honoring diversity and the flow of humanity."
+    },
+    "16": {
+      "name": "Skills",
+      "center": "Throat",
+      "keynote": "The enthusiasm for mastering skills through repetition and the talent to identify what's worth pursuing."
+    },
+    "17": {
+      "name": "Opinions",
+      "center": "Ajna",
+      "keynote": "The formation of opinions and logical patterns that seek to organize and be followed by others."
+    },
+    "18": {
+      "name": "Correction",
+      "center": "Spleen",
+      "keynote": "The instinctive drive to correct flaws and improve upon what already exists."
+    },
+    "19": {
+      "name": "Wanting",
+      "center": "Root",
+      "keynote": "The sensitivity to what is needed for bonding and belonging within a tribe or community."
+    },
+    "20": {
+      "name": "The Now",
+      "center": "Throat",
+      "keynote": "The present-tense awareness that translates knowing directly into immediate action or speech."
+    },
+    "21": {
+      "name": "The Hunter/Huntress",
+      "center": "Heart",
+      "keynote": "The will to control and manage resources, asserting authority over one's own domain."
+    },
+    "22": {
+      "name": "Openness",
+      "center": "Solar Plexus",
+      "keynote": "The graceful, emotionally attuned openness that listens and charms through receptive awareness."
+    },
+    "23": {
+      "name": "Assimilation",
+      "center": "Throat",
+      "keynote": "The individual insight that must be simplified and translated before others can assimilate it."
+    },
+    "24": {
+      "name": "Rationalization",
+      "center": "Ajna",
+      "keynote": "The mental process of returning to a thought repeatedly until a rationalized breakthrough emerges."
+    },
+    "25": {
+      "name": "The Spirit of the Self",
+      "center": "G",
+      "keynote": "The spirit of innocent, universal love directed at the self and the whole of existence."
+    },
+    "26": {
+      "name": "The Egoist",
+      "center": "Heart",
+      "keynote": "The persuasive drive to manage impressions and transmit a proven message or memory."
+    },
+    "27": {
+      "name": "Caring",
+      "center": "Sacral",
+      "keynote": "The caretaking impulse to nourish, protect, and take responsibility for others' well-being."
+    },
+    "28": {
+      "name": "The Game Player",
+      "center": "Spleen",
+      "keynote": "The instinctive awareness of what risks and struggles are worth engaging in for the sake of meaning."
+    },
+    "29": {
+      "name": "Perseverance",
+      "center": "Sacral",
+      "keynote": "The commitment that says yes to experience, perseverance, and seeing things through to depth."
+    },
+    "30": {
+      "name": "Feelings",
+      "center": "Solar Plexus",
+      "keynote": "The fire of desire and feeling that fuels the pursuit of new experiences."
+    },
+    "31": {
+      "name": "Influence",
+      "center": "Throat",
+      "keynote": "The voice of leadership that emerges only when recognized and elected by others to speak for the collective."
+    },
+    "32": {
+      "name": "Continuity",
+      "center": "Spleen",
+      "keynote": "The instinctive recognition of what will endure and what is worth continuing versus abandoning."
+    },
+    "33": {
+      "name": "Privacy",
+      "center": "Throat",
+      "keynote": "The retreat into privacy needed to process and later share the wisdom of past experience."
+    },
+    "34": {
+      "name": "Power",
+      "center": "Sacral",
+      "keynote": "The raw, self-sufficient power of the Sacral that acts independently of external validation."
+    },
+    "35": {
+      "name": "Change",
+      "center": "Throat",
+      "keynote": "The restless hunger for new experience and progress that comes from trying many things."
+    },
+    "36": {
+      "name": "Crisis",
+      "center": "Solar Plexus",
+      "keynote": "The emotional turbulence of crisis that seeks resolution through lived experience."
+    },
+    "37": {
+      "name": "Friendship",
+      "center": "Solar Plexus",
+      "keynote": "The bond of friendship and family built on reciprocal agreements and mutual support."
+    },
+    "38": {
+      "name": "The Fighter",
+      "center": "Root",
+      "keynote": "The fighting spirit that takes a stand for what it believes is worth struggling for."
+    },
+    "39": {
+      "name": "Provocation",
+      "center": "Root",
+      "keynote": "The provocative pulse that stirs emotional reactions in order to test and transform the spirit."
+    },
+    "40": {
+      "name": "Aloneness",
+      "center": "Heart",
+      "keynote": "The willpower to work hard for the tribe balanced by the necessary need for aloneness and rest."
+    },
+    "41": {
+      "name": "Contraction",
+      "center": "Root",
+      "keynote": "The initial pressure of anticipation and desire that starts a new cycle of experience."
+    },
+    "42": {
+      "name": "Growth",
+      "center": "Sacral",
+      "keynote": "The energy of growth and increase, driving a cycle toward its natural completion."
+    },
+    "43": {
+      "name": "Insight",
+      "center": "Ajna",
+      "keynote": "The individual insight and breakthrough that arrives suddenly, often ahead of the words to explain it."
+    },
+    "44": {
+      "name": "Alertness",
+      "center": "Spleen",
+      "keynote": "The instinctive memory of past patterns that recognizes people's skills and potential at a glance."
+    },
+    "45": {
+      "name": "The Gatherer",
+      "center": "Throat",
+      "keynote": "The gathering of tribal resources and leadership over what is shared and distributed within a community."
+    },
+    "46": {
+      "name": "The Determination of the Self",
+      "center": "G",
+      "keynote": "The determination and love of the body that puts one in the right place at the right time."
+    },
+    "47": {
+      "name": "Realization",
+      "center": "Ajna",
+      "keynote": "The mental pressure to make sense of accumulated experience and arrive at realization."
+    },
+    "48": {
+      "name": "Depth",
+      "center": "Spleen",
+      "keynote": "The depth of accumulated wisdom and competence, always seeking to be adequate to the task."
+    },
+    "49": {
+      "name": "Principles",
+      "center": "Solar Plexus",
+      "keynote": "The principles and terms upon which emotional bonds and tribal relationships are accepted or rejected."
+    },
+    "50": {
+      "name": "Values",
+      "center": "Spleen",
+      "keynote": "The responsibility to uphold shared values and laws that protect and sustain the community."
+    },
+    "51": {
+      "name": "Shock",
+      "center": "Heart",
+      "keynote": "The shock that jolts the self and others awake, initiating through competition and courage."
+    },
+    "52": {
+      "name": "Stillness",
+      "center": "Root",
+      "keynote": "The stillness and focused restraint needed to concentrate force onto a single point."
+    },
+    "53": {
+      "name": "Beginnings",
+      "center": "Root",
+      "keynote": "The pressure to begin new cycles, providing the initiating momentum for ventures to start."
+    },
+    "54": {
+      "name": "Ambition",
+      "center": "Root",
+      "keynote": "The ambitious drive to rise and transform one's material and spiritual circumstances."
+    },
+    "55": {
+      "name": "Spirit",
+      "center": "Solar Plexus",
+      "keynote": "The emotional spirit and mood that moves through cycles of abundance and emptiness, seeking faith."
+    },
+    "56": {
+      "name": "Stimulation",
+      "center": "Throat",
+      "keynote": "The storyteller's gift for stimulating others through narrative, wandering ideas, and shared experience."
+    },
+    "57": {
+      "name": "Intuitive Clarity",
+      "center": "Spleen",
+      "keynote": "The intuitive clarity of instinctive knowing in the present moment, perceived through sound."
+    },
+    "58": {
+      "name": "Vitality",
+      "center": "Root",
+      "keynote": "The vital drive to improve and correct in order to bring joy and betterment to life."
+    },
+    "59": {
+      "name": "Sexuality",
+      "center": "Sacral",
+      "keynote": "The drive to break down barriers of intimacy in order to bond and create fertile connection."
+    },
+    "60": {
+      "name": "Acceptance",
+      "center": "Root",
+      "keynote": "The pressure that sets limits, providing the necessary constraint that allows new forms to take shape."
+    },
+    "61": {
+      "name": "Mystery",
+      "center": "Head",
+      "keynote": "The pressure of inner knowing and mystery that seeks universal truth beyond what can be proven."
+    },
+    "62": {
+      "name": "Detail",
+      "center": "Throat",
+      "keynote": "The articulation of facts and details, organizing complex ideas into precise, nameable language."
+    },
+    "63": {
+      "name": "Doubt",
+      "center": "Head",
+      "keynote": "The logical doubt that questions whether something is truly complete, refining understanding through skepticism."
+    },
+    "64": {
+      "name": "Confusion",
+      "center": "Head",
+      "keynote": "The mental pressure of unresolved, fragmented impressions seeking to be pieced into coherent understanding."
+    }
+  },
+  "channels": [
+    {
+      "gates": [
+        1,
+        8
+      ],
+      "name": "Inspiration",
+      "centers": [
+        "G",
+        "Throat"
+      ],
+      "circuit": "Individual",
+      "keynote": "The channel of a role model who inspires others through unique, authentic self-expression."
+    },
+    {
+      "gates": [
+        2,
+        14
+      ],
+      "name": "The Beat",
+      "centers": [
+        "G",
+        "Sacral"
+      ],
+      "circuit": "Individual",
+      "keynote": "The channel of following a keynote direction while having the sustainable energy to keep pace with it."
+    },
+    {
+      "gates": [
+        3,
+        60
+      ],
+      "name": "Mutation",
+      "centers": [
+        "Sacral",
+        "Root"
+      ],
+      "circuit": "Individual",
+      "keynote": "The channel of energy that transforms limitation into new, unpredictable beginnings."
+    },
+    {
+      "gates": [
+        4,
+        63
+      ],
+      "name": "Logic",
+      "centers": [
+        "Ajna",
+        "Head"
+      ],
+      "circuit": "Collective",
+      "keynote": "The channel of a mental pattern that constantly questions and formulates answers to test logical truth."
+    },
+    {
+      "gates": [
+        5,
+        15
+      ],
+      "name": "Rhythm",
+      "centers": [
+        "Sacral",
+        "G"
+      ],
+      "circuit": "Tribal",
+      "keynote": "The channel of consistent rhythms that adapt to accommodate the extremes and diversity of humanity."
+    },
+    {
+      "gates": [
+        6,
+        59
+      ],
+      "name": "Mating",
+      "centers": [
+        "Solar Plexus",
+        "Sacral"
+      ],
+      "circuit": "Tribal",
+      "keynote": "The channel of intimacy and bonding, breaking down barriers to create new connections."
+    },
+    {
+      "gates": [
+        7,
+        31
+      ],
+      "name": "The Alpha",
+      "centers": [
+        "G",
+        "Throat"
+      ],
+      "circuit": "Collective",
+      "keynote": "The channel of leadership through the democratic process, directing others when recognized to lead."
+    },
+    {
+      "gates": [
+        9,
+        52
+      ],
+      "name": "Concentration",
+      "centers": [
+        "Sacral",
+        "Root"
+      ],
+      "circuit": "Collective",
+      "keynote": "The channel of focused determination and stillness that sustains attention until completion."
+    },
+    {
+      "gates": [
+        10,
+        20
+      ],
+      "name": "Awakening",
+      "centers": [
+        "G",
+        "Throat"
+      ],
+      "circuit": "Individual",
+      "keynote": "The channel of behaving authentically and acting from self-love in the immediacy of the present moment."
+    },
+    {
+      "gates": [
+        10,
+        34
+      ],
+      "name": "Exploration",
+      "centers": [
+        "G",
+        "Sacral"
+      ],
+      "circuit": "Individual",
+      "keynote": "The channel of following one's own convictions with the power to act on them independently."
+    },
+    {
+      "gates": [
+        10,
+        57
+      ],
+      "name": "Perfected Form",
+      "centers": [
+        "G",
+        "Spleen"
+      ],
+      "circuit": "Individual",
+      "keynote": "The channel of survival instinct guided by intuitive, in-the-moment awareness of correct behavior."
+    },
+    {
+      "gates": [
+        11,
+        56
+      ],
+      "name": "Curiosity",
+      "centers": [
+        "Ajna",
+        "Throat"
+      ],
+      "circuit": "Collective",
+      "keynote": "The channel of the storyteller, sharing ideas and experiences that stimulate curiosity in others."
+    },
+    {
+      "gates": [
+        12,
+        22
+      ],
+      "name": "Openness",
+      "centers": [
+        "Throat",
+        "Solar Plexus"
+      ],
+      "circuit": "Individual",
+      "keynote": "The channel of cautious emotional expression that opens into grace and social charm when the mood is right."
+    },
+    {
+      "gates": [
+        13,
+        33
+      ],
+      "name": "The Prodigal",
+      "centers": [
+        "G",
+        "Throat"
+      ],
+      "circuit": "Collective",
+      "keynote": "The channel of listening to and retelling the lessons of the past to guide the future."
+    },
+    {
+      "gates": [
+        16,
+        48
+      ],
+      "name": "The Wavelength",
+      "centers": [
+        "Throat",
+        "Spleen"
+      ],
+      "circuit": "Collective",
+      "keynote": "The channel of talent, pairing enthusiasm for skill with the depth needed to achieve mastery."
+    },
+    {
+      "gates": [
+        17,
+        62
+      ],
+      "name": "Acceptance",
+      "centers": [
+        "Ajna",
+        "Throat"
+      ],
+      "circuit": "Collective",
+      "keynote": "The channel of organized, detailed opinion seeking logical acceptance and recognition from others."
+    },
+    {
+      "gates": [
+        18,
+        58
+      ],
+      "name": "Judgment",
+      "centers": [
+        "Spleen",
+        "Root"
+      ],
+      "circuit": "Collective",
+      "keynote": "The channel of correcting imperfections, driven by an instinctive vitality to improve what exists."
+    },
+    {
+      "gates": [
+        19,
+        49
+      ],
+      "name": "Synthesis",
+      "centers": [
+        "Root",
+        "Solar Plexus"
+      ],
+      "circuit": "Tribal",
+      "keynote": "The channel of sensitivity to the needs of others, forming and testing the terms of belonging."
+    },
+    {
+      "gates": [
+        20,
+        34
+      ],
+      "name": "Charisma",
+      "centers": [
+        "Throat",
+        "Sacral"
+      ],
+      "circuit": "Individual",
+      "keynote": "The channel of thinking and acting simultaneously, radiating power through immediate presence."
+    },
+    {
+      "gates": [
+        20,
+        57
+      ],
+      "name": "The Brainwave",
+      "centers": [
+        "Throat",
+        "Spleen"
+      ],
+      "circuit": "Individual",
+      "keynote": "The channel of instinctive awareness voiced directly in the present moment."
+    },
+    {
+      "gates": [
+        21,
+        45
+      ],
+      "name": "Money Line",
+      "centers": [
+        "Heart",
+        "Throat"
+      ],
+      "circuit": "Tribal",
+      "keynote": "The channel of material control and resource leadership, directing what a community values and shares."
+    },
+    {
+      "gates": [
+        23,
+        43
+      ],
+      "name": "Structuring",
+      "centers": [
+        "Throat",
+        "Ajna"
+      ],
+      "circuit": "Individual",
+      "keynote": "The channel of individual insight that must find a simplified form before others can understand it."
+    },
+    {
+      "gates": [
+        24,
+        61
+      ],
+      "name": "Awareness",
+      "centers": [
+        "Ajna",
+        "Head"
+      ],
+      "circuit": "Individual",
+      "keynote": "The channel of inner truth and knowing that circles a thought until inspiration breaks through."
+    },
+    {
+      "gates": [
+        25,
+        51
+      ],
+      "name": "Initiation",
+      "centers": [
+        "G",
+        "Heart"
+      ],
+      "circuit": "Individual",
+      "keynote": "The channel of the spirit's courage to be first, absorbing shock in order to initiate transformation."
+    },
+    {
+      "gates": [
+        26,
+        44
+      ],
+      "name": "Surrender",
+      "centers": [
+        "Heart",
+        "Spleen"
+      ],
+      "circuit": "Tribal",
+      "keynote": "The channel of transmitting a proven message by sensing patterns of value and skill from the past."
+    },
+    {
+      "gates": [
+        27,
+        50
+      ],
+      "name": "Preservation",
+      "centers": [
+        "Sacral",
+        "Spleen"
+      ],
+      "circuit": "Tribal",
+      "keynote": "The channel of caretaking and instinctive values that preserve and protect the community."
+    },
+    {
+      "gates": [
+        28,
+        38
+      ],
+      "name": "Struggle",
+      "centers": [
+        "Spleen",
+        "Root"
+      ],
+      "circuit": "Individual",
+      "keynote": "The channel of instinctively finding meaning in life through purposeful struggle."
+    },
+    {
+      "gates": [
+        29,
+        46
+      ],
+      "name": "Discovery",
+      "centers": [
+        "Sacral",
+        "G"
+      ],
+      "circuit": "Individual",
+      "keynote": "The channel of committing wholeheartedly to experience, discovering the right place through the body."
+    },
+    {
+      "gates": [
+        30,
+        41
+      ],
+      "name": "Recognition",
+      "centers": [
+        "Solar Plexus",
+        "Root"
+      ],
+      "circuit": "Collective",
+      "keynote": "The channel of feeling-driven anticipation that fuels the desire for new experiences and their meaning."
+    },
+    {
+      "gates": [
+        32,
+        54
+      ],
+      "name": "Transformation",
+      "centers": [
+        "Spleen",
+        "Root"
+      ],
+      "circuit": "Tribal",
+      "keynote": "The channel of ambition and instinctive recognition of what has the potential to succeed and rise."
+    },
+    {
+      "gates": [
+        34,
+        57
+      ],
+      "name": "Power",
+      "centers": [
+        "Sacral",
+        "Spleen"
+      ],
+      "circuit": "Individual",
+      "keynote": "The channel of raw power guided by instinctive clarity, acting independently and decisively."
+    },
+    {
+      "gates": [
+        35,
+        36
+      ],
+      "name": "Transitoriness",
+      "centers": [
+        "Throat",
+        "Solar Plexus"
+      ],
+      "circuit": "Collective",
+      "keynote": "The channel of restless craving for new experience, cycling through crisis toward personal growth."
+    },
+    {
+      "gates": [
+        37,
+        40
+      ],
+      "name": "Community",
+      "centers": [
+        "Solar Plexus",
+        "Heart"
+      ],
+      "circuit": "Tribal",
+      "keynote": "The channel of bargains and agreements, exchanging loyalty and support in exchange for belonging."
+    },
+    {
+      "gates": [
+        39,
+        55
+      ],
+      "name": "Emoting",
+      "centers": [
+        "Root",
+        "Solar Plexus"
+      ],
+      "circuit": "Individual",
+      "keynote": "The channel of provoking emotional response as a spirit-driven test of individual mood and depth."
+    },
+    {
+      "gates": [
+        42,
+        53
+      ],
+      "name": "Maturation",
+      "centers": [
+        "Sacral",
+        "Root"
+      ],
+      "circuit": "Collective",
+      "keynote": "The channel of completing cycles fully, from initiation through growth to natural conclusion."
+    },
+    {
+      "gates": [
+        47,
+        64
+      ],
+      "name": "Abstraction",
+      "centers": [
+        "Ajna",
+        "Head"
+      ],
+      "circuit": "Collective",
+      "keynote": "The channel of mentally digesting past experience into abstracted understanding and clarity."
+    }
+  ],
+  "centers": {
+    "Head": {
+      "theme": "Inspiration and mental pressure",
+      "defined": "A defined Head Center generates a consistent, fixed pressure to think and produce questions or inspiration for others, regardless of external influence.",
+      "open": "An open Head Center takes in and amplifies the mental pressure and questions of others, working best by remaining free of a fixed way of thinking."
+    },
+    "Ajna": {
+      "theme": "Conceptualization and mental awareness",
+      "defined": "A defined Ajna produces a fixed, consistent way of processing information into opinions, beliefs, or logical certainty.",
+      "open": "An open Ajna remains flexible and open-minded, able to see and consider many points of view without being attached to any fixed way of thinking."
+    },
+    "Throat": {
+      "theme": "Communication, expression, and manifestation",
+      "defined": "A defined Throat Center provides consistent, reliable access to expression, action, and communication with the world.",
+      "open": "An open Throat Center has no fixed way of communicating and often adapts its expression to timing and social context, sometimes leading to pressure to speak before being ready."
+    },
+    "G": {
+      "theme": "Identity, direction, love, and self",
+      "defined": "A defined G Center provides a fixed sense of identity, direction, and self-love that remains stable throughout life.",
+      "open": "An open G Center has no fixed identity or direction, and instead is designed to find identity and direction through relationships and life's movement."
+    },
+    "Heart": {
+      "theme": "Willpower, ego, and material determination",
+      "defined": "A defined Heart Center provides consistent willpower, self-worth, and the capacity to make and keep promises to oneself and others.",
+      "open": "An open Heart Center has no fixed willpower and does not need to prove its worth through ego, though it may take on others' pressure to do so."
+    },
+    "Sacral": {
+      "theme": "Life force, work energy, and response",
+      "defined": "A defined Sacral Center is a sustainable life-force motor that generates energy for work and responds instinctively with a gut-level yes or no.",
+      "open": "An open Sacral Center has no consistent life-force energy of its own and can take on and amplify the work energy of others, risking exhaustion if it does not rest."
+    },
+    "Spleen": {
+      "theme": "Instinct, intuition, and survival awareness",
+      "defined": "A defined Spleen Center provides a consistent, in-the-moment instinctive awareness of health, safety, and well-being that speaks once, quietly.",
+      "open": "An open Spleen Center has no fixed instinctive awareness and can be sensitive to and amplify the fears and intuitive signals of others."
+    },
+    "Solar Plexus": {
+      "theme": "Emotions and the emotional wave",
+      "defined": "A defined Solar Plexus Center generates a consistent emotional wave, and is the only center whose awareness becomes clear over time rather than in the moment.",
+      "open": "An open Solar Plexus Center has no fixed emotional wave of its own and absorbs and amplifies the emotions of others, often craving harmony while avoiding conflict."
+    },
+    "Root": {
+      "theme": "Adrenal pressure and the drive to act",
+      "defined": "A defined Root Center provides a consistent, manageable stream of pressure and drive to get things done and relieve stress through action.",
+      "open": "An open Root Center has no fixed source of pressure and can take on and amplify the stress and urgency of the environment around it."
+    }
+  },
+  "types": {
+    "Manifestor": {
+      "strategy": "Inform others before acting, to ease resistance and allow the initiating energy to move smoothly through the world.",
+      "signature": "Peace — the feeling of an unimpeded flow when free to initiate without unnecessary resistance from others.",
+      "not_self_theme": "Anger — arising when a Manifestor is controlled, blocked, or forced to justify their independent initiations."
+    },
+    "Generator": {
+      "strategy": "Respond to life rather than initiate, waiting for something in the environment to react to with a gut-level yes or no.",
+      "signature": "Satisfaction — the feeling of fulfillment that comes from doing work that is correct for them.",
+      "not_self_theme": "Frustration — arising when a Generator is not responding to life or is engaged in work that does not truly satisfy them."
+    },
+    "Manifesting Generator": {
+      "strategy": "Respond to life first, then inform others once a course of action has been chosen, since their responses often lead to fast, multi-track action.",
+      "signature": "Satisfaction — the feeling of fulfillment from following their sacral response, often through many parallel pursuits.",
+      "not_self_theme": "Frustration — arising when they are slowed down, skip steps, or are not responding authentically to what excites them."
+    },
+    "Projector": {
+      "strategy": "Wait for invitation and recognition before sharing guidance, entering key areas of life such as relationships, career, and community.",
+      "signature": "Success — the feeling of being correctly recognized and invited to use their focused, penetrating awareness.",
+      "not_self_theme": "Bitterness — arising when a Projector is not recognized or invited, leading to feeling unseen or unappreciated."
+    },
+    "Reflector": {
+      "strategy": "Wait a full lunar cycle (roughly 28 days) before making major decisions, sampling and reflecting the health of their community and environment.",
+      "signature": "Surprise — the feeling of delight that comes from a life lived openly, sampling all that each environment and cycle offers.",
+      "not_self_theme": "Disappointment — arising when a Reflector rushes decisions or spends time in environments that do not support their unique openness."
+    }
+  },
+  "authority_hierarchy": [
+    "Solar Plexus (Emotional)",
+    "Sacral",
+    "Spleen (Splenic)",
+    "Heart (Ego/Willpower)",
+    "G Center (Self-Projected)",
+    "Ajna (Mental)",
+    "Lunar (Reflector only)"
+  ],
+  "profile_lines": {
+    "1": "The Investigator — a need for a firm foundation of knowledge and security, gained by researching and going deep before feeling ready to engage with the world.",
+    "2": "The Hermit — a natural, innate talent that thrives in privacy and must be called out of solitude by others rather than pursued directly.",
+    "3": "The Martyr — a trial-and-error experimenter who learns through direct experience, discovering what works by first discovering what doesn't.",
+    "4": "The Opportunist — a network-oriented influence whose foundation and opportunities come through close friendships and personal relationships.",
+    "5": "The Heretic — a projection-field personality that attracts expectations from others and offers practical, universal solutions, often facing projection and misunderstanding.",
+    "6": "The Role Model — a life lived in three phases (trial-and-error, rooftop withdrawal, and exemplary living), ultimately becoming a trusted role model for others."
+  }
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Five-System Celestial Report — Astrology, Vedic, Numerology, Human Design &amp; Gene Keys</title>
+<meta name="description" content="Generate a combined PDF report covering Western Astrology, Vedic Astrology, Numerology, Human Design, and Gene Keys from your birth details.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%2215%22 fill=%22%2314172A%22/><path d=%22M16 6 L18.2 13.2 L25.5 13.2 L19.6 17.6 L21.8 24.8 L16 20.4 L10.2 24.8 L12.4 17.6 L6.5 13.2 L13.8 13.2 Z%22 fill=%22%23C9A24B%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="stage">
+  <div class="star-field" aria-hidden="true" id="starField"></div>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="40" height="40" fill="none" aria-hidden="true">
+          <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1"/>
+          <path d="M20 8 L22.8 16.8 L32 16.8 L24.6 22.2 L27.4 31 L20 25.6 L12.6 31 L15.4 22.2 L8 16.8 L17.2 16.8 Z" fill="currentColor"/>
+        </svg>
+      </div>
+      <p class="kicker">FIVE SYSTEMS · ONE REPORT</p>
+      <h1>Five-System<br><em>Celestial Report</em></h1>
+      <p class="hero-sub">A single combined PDF reading of your <strong>Western Astrology</strong>, <strong>Vedic Astrology</strong>, <strong>Numerology</strong>, <strong>Human Design</strong>, and <strong>Gene Keys</strong> — built precisely from your birth details.</p>
+      <div class="system-pills" aria-hidden="true">
+        <span class="pill">Western</span>
+        <span class="pill">Vedic</span>
+        <span class="pill">Numerology</span>
+        <span class="pill">Human Design</span>
+        <span class="pill">Gene Keys</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="content">
+    <section class="form-card" aria-labelledby="form-heading">
+      <h2 id="form-heading">Enter your birth details</h2>
+      <p class="form-intro">Your exact birth time and place matter — they determine your rising sign, houses, Human Design chart, and more. All calculations happen from your inputs alone; nothing is stored.</p>
+
+      <form id="reportForm" novalidate>
+        <div class="field">
+          <label for="name">Full birth name</label>
+          <input type="text" id="name" name="name" placeholder="e.g. Jordan Avery Lee" autocomplete="name" required maxlength="120">
+          <p class="field-hint">Used for your Numerology calculations — enter your full name as given at birth.</p>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="birthDate">Birth date</label>
+            <input type="date" id="birthDate" name="birthDate" required min="1900-01-01" max="2100-12-31">
+          </div>
+          <div class="field">
+            <label for="birthTime">Birth time</label>
+            <input type="time" id="birthTime" name="birthTime" required>
+            <p class="field-hint">As close to exact as possible.</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="birthPlace">Birth place</label>
+          <input type="text" id="birthPlace" name="birthPlace" placeholder="City, Region, Country — e.g. Vancouver, BC, Canada" autocomplete="off" required maxlength="200">
+          <p class="field-hint">City and country is usually enough to resolve coordinates and historical time zone.</p>
+        </div>
+
+        <fieldset class="field depth-field">
+          <legend>Report depth</legend>
+          <div class="depth-options" role="radiogroup" aria-label="Report depth">
+            <label class="depth-option" for="depthConcise">
+              <input type="radio" id="depthConcise" name="depth" value="concise">
+              <span class="depth-card">
+                <span class="depth-title">Concise</span>
+                <span class="depth-desc">Core placements &amp; key themes across all five systems. ~11 pages.</span>
+              </span>
+            </label>
+            <label class="depth-option" for="depthComprehensive">
+              <input type="radio" id="depthComprehensive" name="depth" value="comprehensive" checked>
+              <span class="depth-card">
+                <span class="depth-title">Comprehensive</span>
+                <span class="depth-desc">Full charts, dasha timeline, gate tables &amp; complete Gene Keys sequences. ~16 pages.</span>
+              </span>
+            </label>
+          </div>
+        </fieldset>
+
+        <button type="submit" id="submitBtn" class="submit-btn">
+          <span class="btn-label">Generate my report</span>
+          <span class="btn-spinner" aria-hidden="true"></span>
+        </button>
+
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="about-grid" aria-label="What's inside">
+      <div class="about-card">
+        <span class="about-num">01</span>
+        <h3>Western Astrology</h3>
+        <p>Your tropical zodiac chart — Ascendant, Midheaven, planetary placements, houses, and key aspects.</p>
+      </div>
+      <div class="about-card">
+        <span class="about-num">02</span>
+        <h3>Vedic Astrology</h3>
+        <p>Sidereal (Lahiri) placements, nakshatras, and your current Vimshottari Dasha period.</p>
+      </div>
+      <div class="about-card">
+        <span class="about-num">03</span>
+        <h3>Numerology</h3>
+        <p>Life Path, Expression, Soul Urge &amp; Personality numbers, plus your full Psychomatrix grid.</p>
+      </div>
+      <div class="about-card">
+        <span class="about-num">04</span>
+        <h3>Human Design</h3>
+        <p>Your Type, Strategy, Authority, Profile, defined centers, and channels.</p>
+      </div>
+      <div class="about-card">
+        <span class="about-num">05</span>
+        <h3>Gene Keys</h3>
+        <p>Your Activation, Venus, and Pearl Sequences — the Shadow, Gift, and Siddhi of each key sphere.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Generated computationally from Swiss Ephemeris planetary data and traditional numerological, Human Design, and Gene Keys reference systems. Intended for reflection and self-exploration — not professional, medical, financial, or legal advice.</p>
+  </footer>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
