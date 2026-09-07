@@ -308,3 +308,83 @@ tr:nth-child(even) td { background: rgba(201,162,75,0.06); }
   color: var(--ink-muted);
   font-style: italic;
 }
+
+/* ---------- CHART VISUALS (wheel / bodygraph / gene keys bands) ---------- */
+.chart-wrap {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  text-align: center;
+  margin: 0.3cm 0 0.5cm 0;
+  padding: 0.4cm 0.3cm 0.25cm 0.3cm;
+  background: var(--parchment-alt);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.chart-wrap svg { margin: 0 auto; }
+.chart-caption {
+  font-size: 8.6pt;
+  color: var(--ink-muted);
+  font-style: italic;
+  max-width: 13cm;
+  margin: 0.2cm auto 0 auto;
+  text-align: center;
+  line-height: 1.4;
+}
+.chart-caption-top {
+  margin: 0 0 0.3cm 0;
+  text-align: left;
+  max-width: none;
+}
+
+.gk-band-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.22cm;
+  margin: 0 0 0.5cm 0;
+}
+.gk-band-card {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--parchment-alt);
+  padding: 0.28cm 0.4cm;
+}
+.gk-band-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.14cm;
+}
+.gk-band-title {
+  font-family: 'Instrument Serif';
+  font-size: 13.5pt;
+  color: var(--navy);
+}
+.gk-band-meta {
+  font-size: 8pt;
+  color: var(--ink-muted);
+  letter-spacing: 0.02em;
+}
+.gk-band-row {
+  display: flex;
+  align-items: center;
+  gap: 0.18cm;
+  flex-wrap: wrap;
+}
+.gk-pill {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.08cm 0.32cm;
+  font-size: 8.6pt;
+  color: var(--ink-muted);
+  background: #fff;
+}
+.gk-pill-gift {
+  border-color: var(--gold);
+  color: var(--navy);
+  background: rgba(201,162,75,0.14);
+  font-weight: 600;
+}
+.gk-arrow {
+  color: var(--gold);
+  font-size: 9pt;
+}

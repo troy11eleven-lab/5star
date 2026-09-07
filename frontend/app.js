@@ -40,14 +40,38 @@ const form = document.getElementById("reportForm");
 const submitBtn = document.getElementById("submitBtn");
 const formStatus = document.getElementById("formStatus");
 
+const previewSection = document.getElementById("previewSection");
+const previewName = document.getElementById("previewName");
+const previewMeta = document.getElementById("previewMeta");
+const headlineStats = document.getElementById("headlineStats");
+const wheelVisual = document.getElementById("wheelVisual");
+const bodygraphVisual = document.getElementById("bodygraphVisual");
+const gkVisual = document.getElementById("gkVisual");
+const downloadBtn = document.getElementById("downloadBtn");
+const downloadStatus = document.getElementById("downloadStatus");
+
+let currentPreviewId = null;
+let currentDepth = "comprehensive";
+let currentName = "report";
+
 function setStatus(message, type) {
   formStatus.textContent = message || "";
   formStatus.className = "form-status" + (type ? " " + type : "");
 }
 
+function setDownloadStatus(message, type) {
+  downloadStatus.textContent = message || "";
+  downloadStatus.className = "form-status" + (type ? " " + type : "");
+}
+
 function setLoading(isLoading) {
   submitBtn.disabled = isLoading;
   submitBtn.classList.toggle("loading", isLoading);
+}
+
+function setDownloadLoading(isLoading) {
+  downloadBtn.disabled = isLoading;
+  downloadBtn.classList.toggle("loading", isLoading);
 }
 
 function slugify(name) {
@@ -70,6 +94,50 @@ async function extractErrorMessage(response) {
   }
 }
 
+function showChartSkeletons() {
+  const skel = '<div class="chart-skel" aria-hidden="true"></div>';
+  wheelVisual.innerHTML = skel;
+  bodygraphVisual.innerHTML = skel;
+  gkVisual.innerHTML = '<div class="chart-skel" aria-hidden="true" style="border-radius: 8px; aspect-ratio: 3 / 1;"></div>';
+  previewSection.hidden = false;
+}
+
+function firstNameOf(fullName) {
+  const trimmed = (fullName || "").trim();
+  if (!trimmed) return "your";
+  return trimmed.split(/\s+/)[0] + "'s";
+}
+
+function renderStat(label, value) {
+  if (!value) return "";
+  return `<div class="headline-stat"><span class="headline-stat-label">${label}</span><span class="headline-stat-value">${value}</span></div>`;
+}
+
+function renderPreview(data) {
+  previewName.textContent = firstNameOf(data.name);
+  previewMeta.textContent = `${data.birth_date_pretty} \u00b7 ${data.birth_time_pretty} \u00b7 ${data.birth_place}`;
+
+  const s = data.stats || {};
+  headlineStats.innerHTML = [
+    renderStat("Sun sign", s.sun_sign),
+    renderStat("Ascendant", s.ascendant),
+    renderStat("HD type", s.hd_type),
+    renderStat("Authority", s.hd_authority),
+    renderStat("Profile", s.hd_profile),
+  ].join("");
+
+  wheelVisual.innerHTML = data.wheel_svg || "";
+  bodygraphVisual.innerHTML = data.bodygraph_svg || "";
+  gkVisual.innerHTML = data.gk_bands_html || "";
+
+  currentPreviewId = data.preview_id;
+  currentDepth = data.depth;
+  currentName = data.name;
+  setDownloadStatus("");
+
+  previewSection.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -85,10 +153,11 @@ form.addEventListener("submit", async (e) => {
   }
 
   setLoading(true);
-  setStatus("Calculating your chart and rendering your report — this can take up to a minute…");
+  setStatus("Calculating your chart — this can take up to a minute…");
+  showChartSkeletons();
 
   try {
-    const response = await fetch(`${API_BASE}/api/generate-report`, {
+    const response = await fetch(`${API_BASE}/api/preview-report`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -103,7 +172,35 @@ form.addEventListener("submit", async (e) => {
     if (!response.ok) {
       const message = await extractErrorMessage(response);
       setStatus(message, "error");
+      previewSection.hidden = true;
       setLoading(false);
+      return;
+    }
+
+    const data = await response.json();
+    renderPreview(data);
+    setStatus("Your chart preview is ready below.", "success");
+  } catch (err) {
+    setStatus("We couldn't reach the report service. Please try again in a moment.", "error");
+    previewSection.hidden = true;
+  } finally {
+    setLoading(false);
+  }
+});
+
+downloadBtn.addEventListener("click", async () => {
+  if (!currentPreviewId) return;
+
+  setDownloadLoading(true);
+  setDownloadStatus("Rendering your full PDF — this can take up to a minute…");
+
+  try {
+    const response = await fetch(`${API_BASE}/api/download-report/${currentPreviewId}`);
+
+    if (!response.ok) {
+      const message = await extractErrorMessage(response);
+      setDownloadStatus(message, "error");
+      setDownloadLoading(false);
       return;
     }
 
@@ -111,16 +208,16 @@ form.addEventListener("submit", async (e) => {
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `${slugify(name)}-five-system-celestial-report-${depth}.pdf`;
+    a.download = `${slugify(currentName)}-five-system-celestial-report-${currentDepth}.pdf`;
     document.body.appendChild(a);
     a.click();
     a.remove();
     window.URL.revokeObjectURL(url);
 
-    setStatus("Your report is downloading now. Enjoy exploring your chart!", "success");
+    setDownloadStatus("Your report is downloading now. Enjoy exploring your chart!", "success");
   } catch (err) {
-    setStatus("We couldn't reach the report service. Please try again in a moment.", "error");
+    setDownloadStatus("We couldn't reach the report service. Please try again in a moment.", "error");
   } finally {
-    setLoading(false);
+    setDownloadLoading(false);
   }
 });

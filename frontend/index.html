@@ -96,6 +96,58 @@
       </form>
     </section>
 
+    <section class="preview-section" id="previewSection" aria-labelledby="preview-heading" hidden>
+      <div class="preview-head">
+        <p class="kicker kicker-dark">YOUR CHART · LIVE PREVIEW</p>
+        <h2 id="preview-heading">A first look at <span id="previewName">your</span> chart</h2>
+        <p class="preview-sub" id="previewMeta"></p>
+      </div>
+
+      <div class="headline-stats" id="headlineStats" aria-hidden="true"></div>
+
+      <div class="chart-preview-card">
+        <div class="chart-preview-label">
+          <span class="chart-preview-num">01</span>
+          <div>
+            <h3>Cosmic Snapshot</h3>
+            <p>Your Western (outer, gold) and Vedic (inner, violet) placements on one wheel.</p>
+          </div>
+        </div>
+        <div class="chart-preview-visual" id="wheelVisual"></div>
+      </div>
+
+      <div class="chart-preview-card">
+        <div class="chart-preview-label">
+          <span class="chart-preview-num">02</span>
+          <div>
+            <h3>Human Design Bodygraph</h3>
+            <p>Your defined centers and channels, teal-filled against the open centers.</p>
+          </div>
+        </div>
+        <div class="chart-preview-visual" id="bodygraphVisual"></div>
+      </div>
+
+      <div class="chart-preview-card">
+        <div class="chart-preview-label">
+          <span class="chart-preview-num">03</span>
+          <div>
+            <h3>Gene Keys Activation Sequence</h3>
+            <p>Your four core spheres, shadow through gift to siddhi.</p>
+          </div>
+        </div>
+        <div class="chart-preview-visual chart-preview-visual-bands" id="gkVisual"></div>
+      </div>
+
+      <div class="preview-download">
+        <p class="preview-download-copy">This is a preview of three of the visuals — your full PDF includes all five systems, houses, aspects, gate tables, dasha timeline, and complete interpretive text.</p>
+        <button type="button" class="submit-btn download-btn" id="downloadBtn">
+          <span class="btn-label">Download full PDF report</span>
+          <span class="btn-spinner" aria-hidden="true"></span>
+        </button>
+        <p class="form-status" id="downloadStatus" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
     <section class="about-grid" aria-label="What's inside">
       <div class="about-card">
         <span class="about-num">01</span>

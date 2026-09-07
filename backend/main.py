@@ -11,7 +11,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
-from generate_report import generate
+from generate_report import generate, build_context, render
 from astro_engine import GeocodeError
 
 logging.basicConfig(level=logging.INFO)
@@ -20,6 +20,12 @@ logger = logging.getLogger("celestial_report")
 APP_DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_DIR = os.path.join(APP_DIR, "generated")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+# In-memory cache of built report contexts, keyed by request_id, so the PDF
+# can be rendered lazily on download without recomputing the full chart.
+_CONTEXT_CACHE = {}
+_CONTEXT_CACHE_LOCK = threading.Lock()
+_CONTEXT_MAX_AGE_SECONDS = 30 * 60
 
 app = FastAPI(title="Five-System Celestial Report API")
 
@@ -60,15 +66,9 @@ class ReportRequest(BaseModel):
     depth: str = Field("comprehensive", description="'concise' or 'comprehensive'")
 
 
-@app.get("/api/health")
-def health():
-    return {"status": "ok"}
-
-
-@app.post("/api/generate-report")
-def generate_report_endpoint(req: ReportRequest):
-    _cleanup_old_files()
-
+def _validate_request(req: "ReportRequest"):
+    """Shared validation for both preview and generate endpoints. Returns
+    (name, birth_place, depth) or raises HTTPException."""
     name = req.name.strip()
     birth_place = req.birth_place.strip()
     depth = req.depth.strip().lower() if req.depth else "comprehensive"
@@ -100,6 +100,103 @@ def generate_report_endpoint(req: ReportRequest):
             raise ValueError()
     except ValueError:
         raise HTTPException(status_code=400, detail="Please enter a valid birth time.")
+
+    return name, birth_place, depth
+
+
+def _cleanup_old_contexts():
+    now = time.time()
+    with _CONTEXT_CACHE_LOCK:
+        expired = [k for k, v in _CONTEXT_CACHE.items() if (now - v["created_at"]) > _CONTEXT_MAX_AGE_SECONDS]
+        for k in expired:
+            _CONTEXT_CACHE.pop(k, None)
+
+
+@app.get("/api/health")
+def health():
+    return {"status": "ok"}
+
+
+@app.post("/api/preview-report")
+def preview_report_endpoint(req: ReportRequest):
+    """Runs the full chart pipeline once and returns the three standalone
+    chart visuals (SVG/HTML strings) plus key headline stats and a
+    preview_id token. The PDF itself is rendered lazily by
+    /api/download-report/{preview_id} so the expensive astro/geocoding work
+    only happens once per submission."""
+    _cleanup_old_contexts()
+
+    name, birth_place, depth = _validate_request(req)
+
+    try:
+        context = build_context(name, req.birth_date, req.birth_time, birth_place, depth)
+    except GeocodeError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception:
+        logger.exception("Preview generation failed")
+        raise HTTPException(status_code=500, detail="Something went wrong reading your birth details. Please double-check your birth place and try again.")
+
+    preview_id = uuid.uuid4().hex[:16]
+    with _CONTEXT_CACHE_LOCK:
+        _CONTEXT_CACHE[preview_id] = {"context": context, "created_at": time.time()}
+
+    w, h, gk = context["w"], context["h"], context["gk"]
+    return {
+        "preview_id": preview_id,
+        "name": context["name"],
+        "birth_date_pretty": context["birth_date_pretty"],
+        "birth_time_pretty": context["birth_time_pretty"],
+        "birth_place": context["birth_place"],
+        "depth": context["depth"],
+        "wheel_svg": context["wheel_svg"],
+        "bodygraph_svg": context["bodygraph_svg"],
+        "gk_bands_html": context["gk_bands_html"],
+        "stats": {
+            "ascendant": w.get("ascendant_sign"),
+            "sun_sign": next((p["sign"] for p in w.get("planets", []) if p.get("planet") == "Sun"), None),
+            "hd_type": h.get("type"),
+            "hd_authority": h.get("authority"),
+            "hd_profile": h.get("profile"),
+        },
+    }
+
+
+@app.get("/api/download-report/{preview_id}")
+def download_report_endpoint(preview_id: str):
+    """Renders (or re-serves) the PDF for a previously built preview context."""
+    with _CONTEXT_CACHE_LOCK:
+        entry = _CONTEXT_CACHE.get(preview_id)
+
+    if entry is None:
+        raise HTTPException(status_code=404, detail="Your preview has expired. Please generate it again.")
+
+    context = entry["context"]
+    safe_name = re.sub(r"[^A-Za-z0-9]+", "-", context["name"]).strip("-").lower() or "report"
+    depth = context["depth"]
+    filename = f"{safe_name}-{depth}-{preview_id}.pdf"
+    output_path = os.path.join(OUTPUT_DIR, filename)
+
+    if not os.path.exists(output_path):
+        try:
+            render(context, output_path)
+        except Exception:
+            logger.exception("PDF render failed for preview %s", preview_id)
+            raise HTTPException(status_code=500, detail="Something went wrong rendering your PDF. Please try again.")
+
+    download_name = f"{safe_name}-five-system-celestial-report-{depth}.pdf"
+    return FileResponse(
+        output_path,
+        media_type="application/pdf",
+        filename=download_name,
+        headers={"Content-Disposition": f'attachment; filename="{download_name}"'},
+    )
+
+
+@app.post("/api/generate-report")
+def generate_report_endpoint(req: ReportRequest):
+    _cleanup_old_files()
+
+    name, birth_place, depth = _validate_request(req)
 
     request_id = uuid.uuid4().hex[:12]
     safe_name = re.sub(r"[^A-Za-z0-9]+", "-", name).strip("-").lower() or "report"

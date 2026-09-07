@@ -45,6 +45,11 @@
     <p class="section-intro">Your tropical zodiac chart: the placements, houses, and aspects that describe your personality, drives, and life themes as seen from Earth's relationship to the seasons.</p>
   </div>
 
+  <div class="chart-wrap">
+    {{ wheel_svg|safe }}
+    <p class="chart-caption">Cosmic Snapshot &mdash; outer gold ring shows your Western (tropical) placements, inner violet ring shows your Vedic (sidereal) placements, both anchored to their respective Ascendants.</p>
+  </div>
+
   <div class="big-stat-row">
     <div class="big-stat">
       <div class="label">Ascendant</div>
@@ -194,6 +199,11 @@
   </div>
   {% if h.signature %}<p class="card-text">Signature theme when aligned: <strong>{{ h.signature }}</strong> Not-self theme when off-strategy: <strong>{{ h.not_self_theme }}</strong></p>{% endif %}
 
+  <div class="chart-wrap">
+    {{ bodygraph_svg|safe }}
+    <p class="chart-caption">Your Bodygraph &mdash; teal centers are defined (consistent energy); outlined centers are undefined (open, taking in from others). Gold-and-teal lines mark your defined channels.</p>
+  </div>
+
   <h3 class="block-title">Profile Lines</h3>
   <p class="card-text">{{ h.profile_line_meanings[0] }}</p>
   <p class="card-text">{{ h.profile_line_meanings[1] }}</p>
@@ -239,6 +249,10 @@
   </div>
 
   <h3 class="block-title">Activation Sequence</h3>
+  <p class="chart-caption chart-caption-top">Your Golden Path from Shadow through Gift to Siddhi across the four spheres that shape your core life journey.</p>
+  <div class="gk-band-wrap">
+    {{ gk_bands_html|safe }}
+  </div>
   {% for s in gk.activation %}
   <div class="card">
     <div class="card-title-row">
