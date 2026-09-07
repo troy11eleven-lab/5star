@@ -1,7 +1,7 @@
 :root {
-  --navy: #14172A;
-  --navy-deep: #0B0D1A;
-  --navy-light: #1D2140;
+  --navy: #2A2150;
+  --navy-deep: #171233;
+  --navy-light: #3D2F68;
   --gold: #C9A24B;
   --gold-light: #E4C77A;
   --parchment: #FAF7F0;
@@ -59,6 +59,13 @@ body {
   margin: 0 auto 1.75rem;
   width: 40px;
   height: 40px;
+}
+
+.logo-flower {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.5rem;
+  filter: drop-shadow(0 0 14px rgba(228, 199, 122, 0.35));
 }
 
 .kicker {
