@@ -4,15 +4,18 @@ tropical (Western) and sidereal (Vedic/Lahiri) chart calculation,
 Human Design "design chart" (88deg solar arc prior), and aspects.
 """
 import math
+import time
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
 import swisseph as swe
 from geopy.geocoders import Nominatim
+from geopy.exc import GeocoderRateLimited, GeocoderServiceError
 from timezonefinder import TimezoneFinder
 
 _tf = TimezoneFinder()
 _geolocator = Nominatim(user_agent="celestial_report_app_v1", timeout=10)
+_geocode_cache: dict[str, tuple[float, float, str]] = {}
 
 SIGNS = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra",
          "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"]
@@ -47,11 +50,37 @@ class GeocodeError(Exception):
 
 
 def geocode_place(place_name: str):
-    """Return (lat, lon, resolved_name) for a free-text place name."""
-    loc = _geolocator.geocode(place_name)
+    """Return (lat, lon, resolved_name) for a free-text place name.
+
+    Cached in-process so repeat lookups of the same place never re-hit the
+    geocoding service, and retried with backoff if the free Nominatim
+    endpoint briefly rate-limits us (HTTP 429).
+    """
+    cache_key = place_name.strip().lower()
+    if cache_key in _geocode_cache:
+        return _geocode_cache[cache_key]
+
+    last_error: Exception | None = None
+    for attempt, delay in enumerate((0, 1.5, 3.5)):
+        if delay:
+            time.sleep(delay)
+        try:
+            loc = _geolocator.geocode(place_name)
+            break
+        except (GeocoderRateLimited, GeocoderServiceError) as exc:
+            last_error = exc
+            loc = None
+    else:
+        raise GeocodeError(
+            f"The location lookup service is temporarily busy. Please try again in a moment. ({last_error})"
+        )
+
     if loc is None:
         raise GeocodeError(f"Could not find location: {place_name}")
-    return loc.latitude, loc.longitude, loc.address
+
+    result = (loc.latitude, loc.longitude, loc.address)
+    _geocode_cache[cache_key] = result
+    return result
 
 
 def resolve_timezone(lat: float, lon: float) -> str:
