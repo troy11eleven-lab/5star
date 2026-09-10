@@ -158,6 +158,7 @@ def preview_report_endpoint(req: ReportRequest):
             "hd_authority": h.get("authority"),
             "hd_profile": h.get("profile"),
         },
+        "calc": context.get("calc"),
     }
 
 

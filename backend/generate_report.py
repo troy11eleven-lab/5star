@@ -55,6 +55,32 @@ def build_context(name: str, birth_date: str, birth_time: str, birth_place: str,
     except ValueError:
         time_pretty = birth_time
 
+    birth_meta = chart["birth"]
+
+    def _fmt_coord(value: float, pos_label: str, neg_label: str) -> str:
+        label = pos_label if value >= 0 else neg_label
+        return f"{abs(value):.4f}\u00b0 {label}"
+
+    offset_hours = birth_meta["utc_offset_hours"]
+    offset_sign = "+" if offset_hours >= 0 else "-"
+    offset_h = int(abs(offset_hours))
+    offset_m = int(round((abs(offset_hours) - offset_h) * 60))
+    utc_offset_pretty = f"UTC{offset_sign}{offset_h:02d}:{offset_m:02d}"
+
+    calc = {
+        "birth_place": birth_meta["place"],
+        "latitude": _fmt_coord(birth_meta["lat"], "N", "S"),
+        "longitude": _fmt_coord(birth_meta["lon"], "E", "W"),
+        "timezone": birth_meta["tz_name"],
+        "utc_offset": utc_offset_pretty,
+        "is_dst": birth_meta["is_dst"],
+        "utc_datetime": birth_meta["utc_iso"][:16].replace("T", " ") + " UTC",
+        "western_house_system": birth_meta["western_house_system"],
+        "vedic_house_system": birth_meta["vedic_house_system"],
+        "ayanamsa_name": birth_meta["ayanamsa_name"],
+        "ayanamsa_value": v["ayanamsa"],
+    }
+
     context = {
         "name": name,
         "birth_date_pretty": bdate.strftime("%B %-d, %Y"),
@@ -63,6 +89,7 @@ def build_context(name: str, birth_date: str, birth_time: str, birth_place: str,
         "depth": depth,
         "w": w, "v": v, "n": n, "h": h, "gk": g,
         "integration": integration,
+        "calc": calc,
         "wheel_svg": wheel_svg,
         "bodygraph_svg": bodygraph_svg,
         "gk_bands_html": gk_bands_html,

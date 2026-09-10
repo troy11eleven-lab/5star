@@ -49,8 +49,42 @@ class GeocodeError(Exception):
     pass
 
 
+def _clean_place_label(place_name: str, address_details: dict | None) -> str:
+    """Build a clean 'City, State/Region, Country' label instead of the full
+    reverse-geocoded street address Nominatim returns by default (which can
+    surface a street name, business, or ZIP code picked up from whichever
+    point the free-text search happened to resolve to).
+
+    Falls back to the user's own typed place name (title-cased) if structured
+    address components aren't available, since that's always at least as
+    trustworthy as a street-level address for a birth-place label.
+    """
+    if not address_details:
+        return place_name.strip()
+
+    city = (
+        address_details.get("city")
+        or address_details.get("town")
+        or address_details.get("village")
+        or address_details.get("municipality")
+        or address_details.get("county")
+    )
+    state = address_details.get("state") or address_details.get("region")
+    country = address_details.get("country")
+
+    parts = [p for p in (city, state, country) if p]
+    if parts:
+        return ", ".join(parts)
+    return place_name.strip()
+
+
 def geocode_place(place_name: str):
     """Return (lat, lon, resolved_name) for a free-text place name.
+
+    `resolved_name` is a clean 'City, State, Country' label built from
+    structured address components — not Nominatim's raw reverse-geocoded
+    street address, which can otherwise show a nearby street name, business,
+    or ZIP code that has nothing to do with what the user actually typed.
 
     Cached in-process so repeat lookups of the same place never re-hit the
     geocoding service, and retried with backoff if the free Nominatim
@@ -65,7 +99,7 @@ def geocode_place(place_name: str):
         if delay:
             time.sleep(delay)
         try:
-            loc = _geolocator.geocode(place_name)
+            loc = _geolocator.geocode(place_name, addressdetails=True)
             break
         except (GeocoderRateLimited, GeocoderServiceError) as exc:
             last_error = exc
@@ -78,7 +112,10 @@ def geocode_place(place_name: str):
     if loc is None:
         raise GeocodeError(f"Could not find location: {place_name}")
 
-    result = (loc.latitude, loc.longitude, loc.address)
+    address_details = getattr(loc, "raw", {}).get("address") if loc.raw else None
+    clean_label = _clean_place_label(place_name, address_details)
+
+    result = (loc.latitude, loc.longitude, clean_label)
     _geocode_cache[cache_key] = result
     return result
 
@@ -313,17 +350,63 @@ def full_chart(name: str, date_str: str, time_str: str, place: str):
         total += years
     vedic["dasha_timeline"] = timeline
 
+    # Current Mahadasha = the timeline entry whose [start, end) window contains
+    # "now" (report generation time), NOT the entry active at birth. Falls back
+    # to the last entry if "now" is somehow past the computed 120-year cycle.
+    now_naive = datetime.utcnow()
+    current_dasha = timeline[-1]
+    for entry in timeline:
+        entry_start = datetime.fromisoformat(entry["start"])
+        entry_end = datetime.fromisoformat(entry["end"])
+        if entry_start <= now_naive < entry_end:
+            current_dasha = entry
+            break
+    vedic["current_dasha"] = current_dasha
+
+    # Antardasha (sub-period): within the current Mahadasha, the 9 lords each
+    # rule a proportional slice (their own dasha-years / 120 of the Mahadasha's
+    # length), in the same DASHA_LORDS_CYCLE order starting from the Mahadasha
+    # lord itself.
+    maha_start = datetime.fromisoformat(current_dasha["start"])
+    maha_end = datetime.fromisoformat(current_dasha["end"])
+    maha_len_days = (maha_end - maha_start).days
+    maha_lord_idx = DASHA_LORDS_CYCLE.index(current_dasha["lord"])
+    antar_timeline = []
+    cursor = maha_start
+    for step in range(9):
+        sub_lord = DASHA_LORDS_CYCLE[(maha_lord_idx + step) % 9]
+        sub_days = maha_len_days * (DASHA_YEARS[sub_lord] / 120.0)
+        sub_end = cursor + timedelta(days=sub_days)
+        antar_timeline.append({"lord": sub_lord, "start": cursor.isoformat(), "end": sub_end.isoformat()})
+        cursor = sub_end
+    current_antardasha = antar_timeline[-1]
+    for entry in antar_timeline:
+        entry_start = datetime.fromisoformat(entry["start"])
+        entry_end = datetime.fromisoformat(entry["end"])
+        if entry_start <= now_naive < entry_end:
+            current_antardasha = entry
+            break
+    vedic["current_antardasha"] = current_antardasha
+
     # Human Design: Personality (birth) gates use tropical zodiac mapped to 64-gate wheel;
     # Design gates use chart 88deg of solar arc prior to birth.
     design_jd = find_design_jd(jd_ut)
     design_positions = compute_planets(design_jd, sidereal=False)
+
+    utc_offset_td = local_dt.utcoffset()
+    utc_offset_hours = utc_offset_td.total_seconds() / 3600.0 if utc_offset_td is not None else 0.0
+    is_dst = bool(local_dt.dst()) if local_dt.dst() is not None else False
 
     return {
         "name": name,
         "birth": {
             "date": date_str, "time": time_str, "place": resolved_place,
             "lat": lat, "lon": lon, "tz_name": tz_name,
+            "utc_offset_hours": utc_offset_hours, "is_dst": is_dst,
             "utc_iso": utc_dt.isoformat(), "jd_ut": jd_ut,
+            "western_house_system": "Placidus",
+            "vedic_house_system": "Whole Sign",
+            "ayanamsa_name": "Lahiri",
         },
         "western": western,
         "vedic": vedic,

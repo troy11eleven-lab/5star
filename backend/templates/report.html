@@ -45,6 +45,19 @@
     <p class="section-intro">Your tropical zodiac chart: the placements, houses, and aspects that describe your personality, drives, and life themes as seen from Earth's relationship to the seasons.</p>
   </div>
 
+  <div class="calc-panel">
+    <div class="calc-panel-title">Calculation Details</div>
+    <dl class="calc-grid">
+      <div><dt>Birthplace used</dt> <dd>{{ calc.birth_place }}</dd></div>
+      <div><dt>Coordinates</dt> <dd>{{ calc.latitude }}, {{ calc.longitude }}</dd></div>
+      <div><dt>Time zone</dt> <dd>{{ calc.timezone }} ({{ calc.utc_offset }}{% if calc.is_dst %}, daylight saving in effect{% endif %})</dd></div>
+      <div><dt>Birth moment (UTC)</dt> <dd>{{ calc.utc_datetime }}</dd></div>
+      <div><dt>Western house system</dt> <dd>{{ calc.western_house_system }}</dd></div>
+      <div><dt>Vedic house system</dt> <dd>{{ calc.vedic_house_system }}</dd></div>
+      <div><dt>Ayanamsa</dt> <dd>{{ calc.ayanamsa_name }} ({{ calc.ayanamsa_value }}&deg;)</dd></div>
+    </dl>
+  </div>
+
   <div class="chart-wrap">
     {{ wheel_svg|safe }}
     <p class="chart-caption">Cosmic Snapshot &mdash; outer gold ring shows your Western (tropical) placements, inner violet ring shows your Vedic (sidereal) placements, both anchored to their respective Ascendants.</p>
@@ -101,12 +114,28 @@
     </div>
     <div class="big-stat">
       <div class="label">Current Mahadasha</div>
-      <div class="value">{{ v.dasha_timeline[0].lord }}</div>
-      <div class="sub">{{ v.dasha_timeline[0].start }} &ndash; {{ v.dasha_timeline[0].end }}</div>
+      <div class="value">{{ v.current_mahadasha.lord }}</div>
+      <div class="sub">{{ v.current_mahadasha.start }} &ndash; {{ v.current_mahadasha.end }}</div>
     </div>
   </div>
   <p class="card-text">{{ v.rashi_theme }}</p>
   <p class="card-text muted">Ascendant nakshatra theme: {{ v.ascendant_theme }}</p>
+
+  <h3 class="block-title">Current Planetary Period</h3>
+  <div class="card">
+    <div class="card-title-row">
+      <span class="card-title">{{ v.current_mahadasha.lord }} Mahadasha</span>
+      <span class="card-meta">{{ v.current_mahadasha.start }} &ndash; {{ v.current_mahadasha.end }}</span>
+    </div>
+    <div class="card-text">{{ v.current_mahadasha.meaning }}</div>
+  </div>
+  <div class="card">
+    <div class="card-title-row">
+      <span class="card-title">{{ v.current_antardasha.lord }} Antardasha (sub-period)</span>
+      <span class="card-meta">{{ v.current_antardasha.start }} &ndash; {{ v.current_antardasha.end }}</span>
+    </div>
+    <div class="card-text">{{ v.current_antardasha.meaning }}</div>
+  </div>
 
   <h3 class="block-title">Sidereal Placements &amp; Nakshatras</h3>
   <table>
@@ -126,14 +155,14 @@
   <table>
     <tr><th>Lord</th><th>Period</th><th>Meaning</th></tr>
     {% for d in v.dasha_timeline %}
-    <tr>
-      <td>{{ d.lord }}{% if d.partial %} *{% endif %}</td>
+    <tr{% if d.is_current %} class="current-row"{% endif %}>
+      <td>{{ d.lord }}{% if d.partial %} *{% endif %}{% if d.is_current %} (current){% endif %}</td>
       <td>{{ d.start }} &ndash; {{ d.end }}</td>
       <td>{{ d.meaning }}</td>
     </tr>
     {% endfor %}
   </table>
-  <p class="footer-note">* Currently active dasha at birth; the end date reflects the remainder of the period.</p>
+  <p class="footer-note">* Active at birth; the end date reflects the remainder of that period. "(current)" marks the Mahadasha covering today's date.</p>
 </section>
 
 <!-- ================= NUMEROLOGY ================= -->
